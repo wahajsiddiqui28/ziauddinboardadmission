@@ -1,0 +1,20 @@
+<?php get_header(); ?>
+
+<main id="primary" class="site-main">
+    <header class="page-header">
+        <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+        <?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
+    </header>
+
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' ); ?>
+            <div class="entry-summary"><?php the_excerpt(); ?></div>
+        </article>
+    <?php endwhile; the_posts_pagination(); else : ?>
+        <p><?php esc_html_e( 'Nothing found.', 'ziauddinboardadmission' ); ?></p>
+    <?php endif; ?>
+</main>
+
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>
