@@ -59,6 +59,110 @@
             autoplay();
         }
 
+        // ---- Enroll Now Modal ----
+        var overlay    = document.getElementById('enroll-modal');
+        var openBtns   = document.querySelectorAll('.enrl-open-btn');
+        var closeBtn   = document.querySelector('.enrl-close');
+        var form       = document.getElementById('enrl-form');
+        var successBox = document.getElementById('enrl-success');
+        var errorBox   = document.getElementById('enrl-error');
+        var errorMsg   = document.getElementById('enrl-error-msg');
+        var submitBtn  = document.getElementById('enrl-submit');
+        var btnText    = document.getElementById('enrl-btn-text');
+        var btnLoading = document.getElementById('enrl-btn-loading');
+        var fileInput  = document.getElementById('enrl-photo');
+        var fileText   = document.getElementById('enrl-file-text');
+        var successClose = document.getElementById('enrl-success-close');
+
+        function openModal() {
+            if (!overlay) return;
+            overlay.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            if (!overlay) return;
+            overlay.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        openBtns.forEach(function(btn) {
+            btn.addEventListener('click', openModal);
+        });
+
+        // Also trigger from any href="#enroll" links
+        document.querySelectorAll('a[href="#enroll"], a[href*="#enroll"]').forEach(function(a) {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (successClose) successClose.addEventListener('click', closeModal);
+
+        // Close on overlay click
+        if (overlay) {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) closeModal();
+            });
+        }
+
+        // Close on ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // File name display
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                fileText.textContent = this.files[0] ? this.files[0].name : 'Choose Photo';
+            });
+        }
+
+        // AJAX form submit
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                if (errorBox) errorBox.style.display = 'none';
+
+                var data = new FormData(form);
+                data.append('action', 'enroll_submit');
+
+                btnText.style.display    = 'none';
+                btnLoading.style.display = 'flex';
+                submitBtn.disabled = true;
+
+                fetch((window.ziauddinAjax && ziauddinAjax.url) || '/wp-admin/admin-ajax.php', {
+                    method: 'POST',
+                    body: data,
+                    credentials: 'same-origin'
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    btnText.style.display    = 'inline-flex';
+                    btnLoading.style.display = 'none';
+                    submitBtn.disabled = false;
+
+                    if (res.success) {
+                        form.style.display        = 'none';
+                        if (successBox) successBox.style.display = 'block';
+                    } else {
+                        var msg = (res.data && res.data.message) ? res.data.message : 'Something went wrong.';
+                        if (errorMsg) errorMsg.textContent = msg;
+                        if (errorBox) errorBox.style.display = 'flex';
+                    }
+                })
+                .catch(function() {
+                    btnText.style.display    = 'inline-flex';
+                    btnLoading.style.display = 'none';
+                    submitBtn.disabled = false;
+                    if (errorMsg) errorMsg.textContent = 'Network error. Please try again.';
+                    if (errorBox) errorBox.style.display = 'flex';
+                });
+            });
+        }
+
         // Stat counter
         var statEls = document.querySelectorAll('.stat-card h3[data-count]');
         var animated = false;

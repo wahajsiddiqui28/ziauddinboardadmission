@@ -189,6 +189,169 @@ get_header(); ?>
         </div>
     </section>
 
+    <!-- Contact + Location -->
+    <section class="section hp-contact" id="contact">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow"><i class="fa-solid fa-envelope"></i> &nbsp;Get In Touch</span>
+                <h2>Contact Us &amp; Find Our Campus</h2>
+                <p>"We'd love to hear from you. Reach out for admissions, programs, or any enquiries — our team responds promptly."</p>
+            </div>
+
+            <div class="hp-contact__grid">
+
+                <!-- LEFT: Info + Map -->
+                <div class="hp-contact__left">
+
+                    <!-- Info Cards -->
+                    <div class="hp-info-cards">
+                        <div class="hp-info-card">
+                            <div class="hp-info-icon" style="--ic:#5b4bff;"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <strong>Our Address</strong>
+                                <span>C-1869 &amp; A-83, Behind Gulzar-e-Hijri Police Station,<br>Scheme 33, Karachi – 75620</span>
+                            </div>
+                        </div>
+                        <div class="hp-info-card">
+                            <div class="hp-info-icon" style="--ic:#10b981;"><i class="fa-solid fa-phone-volume"></i></div>
+                            <div>
+                                <strong>Call Us</strong>
+                                <span><a href="tel:+923162984609">0316 2984609</a></span>
+                            </div>
+                        </div>
+                        <div class="hp-info-card">
+                            <div class="hp-info-icon" style="--ic:#f59e0b;"><i class="fa-solid fa-envelope-open-text"></i></div>
+                            <div>
+                                <strong>Email Us</strong>
+                                <span><a href="mailto:beaconacademy5@gmail.com">beaconacademy5@gmail.com</a></span>
+                            </div>
+                        </div>
+                        <div class="hp-info-card">
+                            <div class="hp-info-icon" style="--ic:#e84393;"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <strong>Office Hours</strong>
+                                <span>Mon – Sat: 8:00 AM – 4:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="hp-map">
+                        <iframe
+                            src="https://maps.google.com/maps?q=Telephone+Exchange+Rd+Gulzar+e+Hijri+Karachi&output=embed&z=15"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Beacon Academy Location">
+                        </iframe>
+                        <a href="https://maps.google.com/?q=Gulzar+e+Hijri+Karachi" target="_blank" rel="noopener" class="hp-map-btn">
+                            <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT: Contact Form -->
+                <div class="hp-contact__right">
+                    <div class="hp-form-wrap">
+                        <div class="hp-form-header">
+                            <span class="eyebrow"><i class="fa-solid fa-paper-plane"></i> &nbsp;Send Us a Message</span>
+                            <h3>We Reply Within 24 Hours</h3>
+                        </div>
+
+                        <?php
+                        $hp_sent  = false;
+                        $hp_error = '';
+                        $hp_vals  = array( 'name' => '', 'email' => '', 'message' => '' );
+
+                        if ( isset( $_POST['hp_contact_nonce'] ) &&
+                             wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['hp_contact_nonce'] ) ), 'hp_contact_form' ) ) {
+
+                            $hp_vals['name']    = sanitize_text_field( wp_unslash( $_POST['hp_name']    ?? '' ) );
+                            $hp_vals['email']   = sanitize_email( wp_unslash( $_POST['hp_email']        ?? '' ) );
+                            $hp_vals['message'] = sanitize_textarea_field( wp_unslash( $_POST['hp_message'] ?? '' ) );
+
+                            if ( empty( $hp_vals['name'] ) || empty( $hp_vals['email'] ) || empty( $hp_vals['message'] ) ) {
+                                $hp_error = 'Please fill in all required fields.';
+                            } elseif ( ! is_email( $hp_vals['email'] ) ) {
+                                $hp_error = 'Please enter a valid email address.';
+                            } else {
+                                $to      = get_option( 'admin_email' );
+                                $subject = 'New Enquiry from ' . $hp_vals['name'];
+                                $body    = "Name: {$hp_vals['name']}\nEmail: {$hp_vals['email']}\n\nMessage:\n{$hp_vals['message']}";
+                                $headers = array( 'Content-Type: text/plain; charset=UTF-8', 'Reply-To: ' . $hp_vals['email'] );
+                                $hp_sent = wp_mail( $to, $subject, $body, $headers );
+                                if ( ! $hp_sent ) $hp_error = 'Something went wrong. Please try again.';
+                            }
+                        }
+                        ?>
+
+                        <?php if ( $hp_sent ) : ?>
+                            <div class="hp-form-success">
+                                <div class="hp-success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <h4>Message Sent!</h4>
+                                <p>Thank you, <strong><?php echo esc_html( $hp_vals['name'] ); ?></strong>! We'll get back to you soon.</p>
+                            </div>
+                        <?php else : ?>
+
+                            <?php if ( $hp_error ) : ?>
+                                <div class="hp-form-alert">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <?php echo esc_html( $hp_error ); ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <form class="hp-form" method="post" action="<?php echo esc_url( home_url('/#contact') ); ?>">
+                                <?php wp_nonce_field( 'hp_contact_form', 'hp_contact_nonce' ); ?>
+
+                                <div class="hp-form__row">
+                                    <div class="hp-form__field">
+                                        <label>Full Name <span class="req">*</span></label>
+                                        <div class="hp-input-wrap">
+                                            <i class="fa-solid fa-user"></i>
+                                            <input type="text" name="hp_name" placeholder="e.g. Ahmed Ali"
+                                                value="<?php echo esc_attr( $hp_vals['name'] ); ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="hp-form__field">
+                                        <label>Email Address <span class="req">*</span></label>
+                                        <div class="hp-input-wrap">
+                                            <i class="fa-solid fa-envelope"></i>
+                                            <input type="email" name="hp_email" placeholder="your@email.com"
+                                                value="<?php echo esc_attr( $hp_vals['email'] ); ?>" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="hp-form__field">
+                                    <label>Phone Number</label>
+                                    <div class="hp-input-wrap">
+                                        <i class="fa-solid fa-phone"></i>
+                                        <input type="tel" name="hp_phone" placeholder="0300 0000000">
+                                    </div>
+                                </div>
+
+                                <div class="hp-form__field">
+                                    <label>Your Message <span class="req">*</span></label>
+                                    <div class="hp-input-wrap hp-input-wrap--area">
+                                        <i class="fa-solid fa-message"></i>
+                                        <textarea name="hp_message" rows="5"
+                                            placeholder="Write your enquiry here…" required><?php echo esc_textarea( $hp_vals['message'] ); ?></textarea>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn--primary btn--lg" style="width:100%; justify-content:center;">
+                                    <i class="fa-solid fa-paper-plane"></i> Send Message
+                                </button>
+                            </form>
+
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-band" id="enroll">
         <div class="container cta-band__inner">
@@ -196,7 +359,7 @@ get_header(); ?>
                 <h2>Admissions Are Now Open</h2>
                 <p>Join hundreds of bright students at The Beacon Academy &amp; College. Limited seats available.</p>
             </div>
-            <a href="#" class="btn btn--accent btn--lg">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+            <button class="btn btn--accent btn--lg enrl-open-btn" type="button">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </section>
 

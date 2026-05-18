@@ -65,7 +65,9 @@
             </nav>
 
             <div class="header-cta">
-                <a href="#enroll" class="btn btn--primary">Enroll Now</a>
+                <button class="btn btn--primary enrl-open-btn" type="button">
+                    <i class="fa-solid fa-pen-to-square"></i> Enroll Now
+                </button>
             </div>
         </div>
     </header>
