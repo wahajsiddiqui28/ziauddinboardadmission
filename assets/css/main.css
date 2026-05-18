@@ -20,7 +20,6 @@
     --radius: 16px;
     --radius-lg: 24px;
 }
-/* testing */
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
