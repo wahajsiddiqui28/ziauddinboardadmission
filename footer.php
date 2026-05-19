@@ -8,7 +8,7 @@
                     <span class="brand__text">The Beacon <em>Academy &amp; College</em></span>
                 </a>
                 <p>Quality education with a student-centered approach under Zia Uddin Board standards. Building future leaders through academic excellence.</p>
-                <div class="socials">
+                <div class="socials d-flex align-items-center gap-2">
                     <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>

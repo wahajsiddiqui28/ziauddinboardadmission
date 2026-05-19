@@ -22,7 +22,7 @@ get_header();
         <div class="about-hero__badge"><i class="fa-solid fa-circle-dot"></i> Zia Uddin Board Affiliated</div>
         <h1>About <span class="ab-accent">Beacon Academy</span></h1>
         <p class="about-hero__sub">Empowering students through quality education, strong values, and academic excellence — affiliated with Zia Uddin Board, Karachi.</p>
-        <div class="about-hero__trust">
+        <div class="about-hero__trust d-flex align-items-center flex-wrap gap-3">
             <span><i class="fa-solid fa-user-graduate"></i> 1,000+ Students</span>
             <span class="ah-sep"></span>
             <span><i class="fa-solid fa-award"></i> 10+ Years</span>
@@ -84,7 +84,7 @@ get_header();
                     <li><i class="fa-solid fa-circle-check"></i> Continuous Academic Guidance</li>
                 </ul>
 
-                <div class="ab-welcome__btns">
+                <div class="ab-welcome__btns d-flex align-items-center flex-wrap gap-3">
                     <a href="#contact" class="btn btn--primary btn--lg"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</a>
                     <a href="#campus" class="btn btn--outline btn--lg"><i class="fa-solid fa-location-dot"></i> Find Us</a>
                 </div>
@@ -100,28 +100,28 @@ get_header();
     <div class="ab-stats__orb ab-stats__orb--1" aria-hidden="true"></div>
     <div class="ab-stats__orb ab-stats__orb--2" aria-hidden="true"></div>
     <div class="container ab-stats__grid">
-        <div class="ab-stat-item ab-stat-item--purple">
+        <div class="ab-stat-item ab-stat-item--purple d-flex align-items-center gap-3">
             <div class="ab-stat-item__icon"><i class="fa-solid fa-user-graduate"></i></div>
             <div>
                 <strong>1,000<span>+</span></strong>
                 <span>Students Enrolled</span>
             </div>
         </div>
-        <div class="ab-stat-item ab-stat-item--green">
+        <div class="ab-stat-item ab-stat-item--green d-flex align-items-center gap-3">
             <div class="ab-stat-item__icon"><i class="fa-solid fa-school"></i></div>
             <div>
                 <strong>4<span>+</span></strong>
                 <span>Campus Centers</span>
             </div>
         </div>
-        <div class="ab-stat-item ab-stat-item--gold">
+        <div class="ab-stat-item ab-stat-item--gold d-flex align-items-center gap-3">
             <div class="ab-stat-item__icon"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div>
                 <strong>20<span>+</span></strong>
                 <span>Expert Teachers</span>
             </div>
         </div>
-        <div class="ab-stat-item ab-stat-item--blue">
+        <div class="ab-stat-item ab-stat-item--blue d-flex align-items-center gap-3">
             <div class="ab-stat-item__icon"><i class="fa-solid fa-trophy"></i></div>
             <div>
                 <strong>10<span>+</span></strong>
@@ -136,7 +136,7 @@ get_header();
 ======================================== -->
 <section class="section ab-mv">
     <div class="container">
-        <div class="section-head">
+        <div class="section-head text-center">
             <span class="eyebrow"><i class="fa-solid fa-bullseye"></i> &nbsp;Our Purpose</span>
             <h2>Mission &amp; Vision</h2>
         </div>
@@ -202,7 +202,7 @@ get_header();
     <div class="ab-values__orb ab-values__orb--1" aria-hidden="true"></div>
     <div class="ab-values__orb ab-values__orb--2" aria-hidden="true"></div>
     <div class="container">
-        <div class="section-head">
+        <div class="section-head text-center">
             <span class="eyebrow eyebrow--light"><i class="fa-solid fa-gem"></i> &nbsp;What We Stand For</span>
             <h2 style="color:#fff;">Our Core <span class="ab-values__accent">Values</span></h2>
             <p style="color:rgba(255,255,255,.6);">Everything we do is guided by these principles that shape the Beacon Academy experience.</p>
@@ -259,7 +259,7 @@ get_header();
 ======================================== -->
 <section class="section ab-campus" id="campus">
     <div class="container">
-        <div class="section-head">
+        <div class="section-head text-center">
             <span class="eyebrow"><i class="fa-solid fa-map-location-dot"></i> &nbsp;Find Us</span>
             <h2>Campus Location</h2>
             <p>Conveniently located in Scheme 33, making it easily accessible from Gulzar-e-Hijri and surrounding areas.</p>
@@ -275,28 +275,28 @@ get_header();
                 </iframe>
             </div>
             <div class="ab-campus__info">
-                <div class="ab-info-card" style="--ic:#5b4bff;">
+                <div class="ab-info-card d-flex align-items-start gap-3" style="--ic:#5b4bff;">
                     <div class="ab-info-icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div>
                         <h5>Address</h5>
                         <p>C-1869 &amp; A-83, Behind Gulzar-e-Hijri Police Station<br>Scheme 33, Karachi – 75620</p>
                     </div>
                 </div>
-                <div class="ab-info-card" style="--ic:#10b981;">
+                <div class="ab-info-card d-flex align-items-start gap-3" style="--ic:#10b981;">
                     <div class="ab-info-icon"><i class="fa-solid fa-phone"></i></div>
                     <div>
                         <h5>Phone</h5>
                         <p><a href="tel:+923162984609">0316 2984609</a></p>
                     </div>
                 </div>
-                <div class="ab-info-card" style="--ic:#f59e0b;">
+                <div class="ab-info-card d-flex align-items-start gap-3" style="--ic:#f59e0b;">
                     <div class="ab-info-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div>
                         <h5>Email</h5>
                         <p><a href="mailto:beaconacademy5@gmail.com">beaconacademy5@gmail.com</a></p>
                     </div>
                 </div>
-                <div class="ab-info-card" style="--ic:#e84393;">
+                <div class="ab-info-card d-flex align-items-start gap-3" style="--ic:#e84393;">
                     <div class="ab-info-icon"><i class="fa-solid fa-clock"></i></div>
                     <div>
                         <h5>Office Hours</h5>
@@ -323,7 +323,7 @@ get_header();
             <div class="ab-cta-badge"><i class="fa-solid fa-circle-dot"></i> Admissions 2024–25 Open</div>
             <h2>Ready to Start Your Journey<br>with <span class="ab-cta-accent">Beacon Academy?</span></h2>
             <p>Join thousands of students who have achieved academic success and built bright futures with us. Secure your seat today.</p>
-            <div class="ab-cta-band__btns">
+            <div class="ab-cta-band__btns d-flex align-items-center justify-content-center flex-wrap gap-3">
                 <a href="#enroll" class="btn btn--accent btn--lg">
                     <i class="fa-solid fa-pen-to-square"></i> Apply for Admission
                 </a>
@@ -331,7 +331,7 @@ get_header();
                     <i class="fa-solid fa-phone"></i> Call Us Now
                 </a>
             </div>
-            <div class="ab-cta-trust">
+            <div class="ab-cta-trust d-flex align-items-center justify-content-center flex-wrap gap-3">
                 <span><i class="fa-solid fa-shield-halved"></i> Zia Uddin Board Certified</span>
                 <span class="ab-cta-sep"></span>
                 <span><i class="fa-solid fa-users"></i> 1,000+ Students</span>

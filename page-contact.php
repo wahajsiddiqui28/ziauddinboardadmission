@@ -68,7 +68,7 @@ get_header();
     <div class="container">
         <div class="ct-quick-bar__grid">
 
-            <div class="ct-quick-card">
+            <div class="ct-quick-card d-flex align-items-center gap-3">
                 <div class="ct-quick-icon" style="--qc:#5b4bff;">
                     <i class="fa-solid fa-location-dot"></i>
                 </div>
@@ -78,7 +78,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="ct-quick-card">
+            <div class="ct-quick-card d-flex align-items-center gap-3">
                 <div class="ct-quick-icon" style="--qc:#10b981;">
                     <i class="fa-solid fa-phone-volume"></i>
                 </div>
@@ -88,7 +88,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="ct-quick-card">
+            <div class="ct-quick-card d-flex align-items-center gap-3">
                 <div class="ct-quick-icon" style="--qc:#f59e0b;">
                     <i class="fa-solid fa-envelope-open-text"></i>
                 </div>
@@ -98,7 +98,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="ct-quick-card">
+            <div class="ct-quick-card d-flex align-items-center gap-3">
                 <div class="ct-quick-icon" style="--qc:#e84393;">
                     <i class="fa-solid fa-clock"></i>
                 </div>
@@ -159,7 +159,7 @@ get_header();
 
             <div class="ct-social">
                 <strong>Follow Us</strong>
-                <div class="ct-social__links">
+                <div class="ct-social__links d-flex align-items-center gap-2">
                     <a href="#" aria-label="Facebook" style="--sc:#1877f2;"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" aria-label="Instagram" style="--sc:#e1306c;"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" aria-label="WhatsApp" style="--sc:#25d366;"><i class="fa-brands fa-whatsapp"></i></a>
@@ -196,8 +196,8 @@ get_header();
                 <form class="ct-form" method="post" action="<?php the_permalink(); ?>#contact-form" id="contact-form" novalidate>
                     <?php wp_nonce_field( 'beacon_contact_form', 'beacon_contact_nonce' ); ?>
 
-                    <div class="ct-form__row">
-                        <div class="ct-field">
+                    <div class="ct-form__row row g-0">
+                        <div class="ct-field col-md-6">
                             <label for="ct_name">Full Name <span class="req">*</span></label>
                             <div class="ct-input-wrap">
                                 <i class="fa-solid fa-user"></i>
@@ -205,7 +205,7 @@ get_header();
                                     value="<?php echo esc_attr( $values['name'] ); ?>" required>
                             </div>
                         </div>
-                        <div class="ct-field">
+                        <div class="ct-field col-md-6">
                             <label for="ct_email">Email Address <span class="req">*</span></label>
                             <div class="ct-input-wrap">
                                 <i class="fa-solid fa-envelope"></i>
@@ -215,8 +215,8 @@ get_header();
                         </div>
                     </div>
 
-                    <div class="ct-form__row">
-                        <div class="ct-field">
+                    <div class="ct-form__row row g-0">
+                        <div class="ct-field col-md-6">
                             <label for="ct_phone">Phone Number</label>
                             <div class="ct-input-wrap">
                                 <i class="fa-solid fa-phone"></i>
@@ -224,7 +224,7 @@ get_header();
                                     value="<?php echo esc_attr( $values['phone'] ); ?>">
                             </div>
                         </div>
-                        <div class="ct-field">
+                        <div class="ct-field col-md-6">
                             <label for="ct_subject">Subject</label>
                             <div class="ct-input-wrap">
                                 <i class="fa-solid fa-tag"></i>
@@ -296,7 +296,7 @@ get_header();
             <h2>Ready to Join Beacon Academy?</h2>
             <p>Limited seats available. Apply now and secure your child's future with us.</p>
         </div>
-        <div class="ab-cta-band__btns">
+        <div class="ab-cta-band__btns d-flex align-items-center justify-content-center flex-wrap gap-3">
             <a href="<?php echo esc_url( home_url('/#enroll') ); ?>" class="btn btn--accent btn--lg">
                 <i class="fa-solid fa-pen-to-square"></i> Apply for Admission
             </a>

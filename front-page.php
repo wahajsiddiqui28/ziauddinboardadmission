@@ -30,12 +30,12 @@ get_header(); ?>
                     <li><i class="fa-solid fa-check"></i> Safe, Disciplined and Supportive Environment</li>
                 </ul>
 
-                <div class="hero-cta-wrap">
+                <div class="hero-cta-wrap d-flex align-items-center flex-wrap gap-3">
                     <a href="#enroll" class="btn btn--accent btn--lg btn--shine">Apply for Admission <i class="fa-solid fa-arrow-right"></i></a>
                     <a href="#about" class="btn btn--ghost btn--lg">Learn More</a>
                 </div>
 
-                <div class="hero__stats-row">
+                <div class="hero__stats-row d-flex align-items-center flex-wrap gap-3">
                     <div class="hero__stat">
                         <strong>1,000+</strong>
                         <span>Students</span>
@@ -195,11 +195,11 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="about__cta-row">
+                <div class="about__cta-row d-flex align-items-center flex-wrap gap-3">
                     <a href="<?php echo esc_url( get_permalink( get_page_by_path('about') ) ); ?>" class="btn btn--primary">
                         Explore Academy <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <div class="about__trust">
+                    <div class="about__trust d-flex align-items-center gap-2">
                         <div class="about__trust-stars">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
@@ -247,7 +247,7 @@ get_header(); ?>
     <!-- Programs -->
     <section class="section programs">
         <div class="container">
-            <div class="section-head">
+            <div class="section-head text-center">
                 <span class="eyebrow"><i class="fa-solid fa-book-open-reader"></i> &nbsp;Academic Programs</span>
                 <h2>Our Academic Programs</h2>
                 <p>"Providing Quality Education for All Major Boards with Expert Faculty and Modern Learning Methods."</p>
@@ -317,7 +317,7 @@ get_header(); ?>
     <!-- Testimonials -->
     <section class="section testimonials">
         <div class="container">
-            <div class="section-head">
+            <div class="section-head text-center">
                 <span class="eyebrow"><i class="fa-solid fa-heart"></i> &nbsp;Student Stories</span>
                 <h2>What Parents &amp; Students Say</h2>
                 <p>"Real experiences from our students and parents about the quality education and guidance at Beacon Academy."</p>
@@ -385,7 +385,7 @@ get_header(); ?>
     <!-- Contact + Location -->
     <section class="section hp-contact" id="contact">
         <div class="container">
-            <div class="section-head">
+            <div class="section-head text-center">
                 <span class="eyebrow"><i class="fa-solid fa-envelope"></i> &nbsp;Get In Touch</span>
                 <h2>Contact Us &amp; Find Our Campus</h2>
                 <p>"We'd love to hear from you. Reach out for admissions, programs, or any enquiries — our team responds promptly."</p>
@@ -496,8 +496,8 @@ get_header(); ?>
                             <form class="hp-form" method="post" action="<?php echo esc_url( home_url('/#contact') ); ?>">
                                 <?php wp_nonce_field( 'hp_contact_form', 'hp_contact_nonce' ); ?>
 
-                                <div class="hp-form__row">
-                                    <div class="hp-form__field">
+                                <div class="hp-form__row row g-0">
+                                    <div class="hp-form__field col-md-6">
                                         <label>Full Name <span class="req">*</span></label>
                                         <div class="hp-input-wrap">
                                             <i class="fa-solid fa-user"></i>
@@ -505,7 +505,7 @@ get_header(); ?>
                                                 value="<?php echo esc_attr( $hp_vals['name'] ); ?>" required>
                                         </div>
                                     </div>
-                                    <div class="hp-form__field">
+                                    <div class="hp-form__field col-md-6">
                                         <label>Email Address <span class="req">*</span></label>
                                         <div class="hp-input-wrap">
                                             <i class="fa-solid fa-envelope"></i>
@@ -556,7 +556,7 @@ get_header(); ?>
                 <div class="cta-band__badge"><i class="fa-solid fa-circle-dot"></i> Admissions 2024&ndash;25 Open</div>
                 <h2>Ready to Begin Your <span class="cta-band__accent">Academic Journey?</span></h2>
                 <p>Join hundreds of bright students at The Beacon Academy &amp; College. Secure your seat today — limited spots available for each program.</p>
-                <div class="cta-band__actions">
+                <div class="cta-band__actions d-flex align-items-center justify-content-center flex-wrap gap-3">
                     <button class="btn btn--accent btn--lg enrl-open-btn" type="button">
                         <i class="fa-solid fa-pen-to-square"></i> Apply Now
                     </button>
@@ -564,7 +564,7 @@ get_header(); ?>
                         <i class="fa-solid fa-phone-volume"></i> Contact Us
                     </a>
                 </div>
-                <div class="cta-band__trust">
+                <div class="cta-band__trust d-flex align-items-center justify-content-center flex-wrap gap-3">
                     <span><i class="fa-solid fa-shield-halved"></i> Zia Uddin Board Certified</span>
                     <span class="cta-band__sep"></span>
                     <span><i class="fa-solid fa-users"></i> 1,000+ Students</span>

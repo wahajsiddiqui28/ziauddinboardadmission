@@ -61,7 +61,7 @@ get_header();
         </div>
         <h1>Latest <span class="ab-accent">Blogs</span> &amp; Articles</h1>
         <p>Stay updated with educational insights, exam tips, school news, and academic guidance from Beacon Academy.</p>
-        <div class="bl-hero__trust">
+        <div class="bl-hero__trust d-flex align-items-center flex-wrap gap-3">
             <span><i class="fa-solid fa-newspaper"></i> Educational Insights</span>
             <span class="bl-hero__sep"></span>
             <span><i class="fa-solid fa-lightbulb"></i> Exam Tips</span>
@@ -115,7 +115,7 @@ get_header();
                 <h2><a href="<?php echo esc_url( $feat_link ); ?>"><?php echo esc_html( $feat_title ); ?></a></h2>
                 <p><?php echo esc_html( $feat_exc ); ?></p>
                 <div class="bl-featured__divider" aria-hidden="true"></div>
-                <div class="bl-featured__bottom">
+                <div class="bl-featured__bottom d-flex align-items-center justify-content-between flex-wrap gap-3">
                     <div class="bl-post-author">
                         <div class="bl-author-avatar"><i class="fa-solid fa-user"></i></div>
                         <div>
@@ -140,8 +140,8 @@ get_header();
     <div class="container">
 
         <!-- Filter + Search Bar -->
-        <div class="bl-filter-bar">
-            <div class="bl-filter-cats">
+        <div class="bl-filter-bar d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div class="bl-filter-cats d-flex align-items-center flex-wrap gap-2">
                 <a href="<?php echo esc_url( get_permalink() ); ?>"
                    class="bl-filter-btn <?php echo ! $cat_slug ? 'is-active' : ''; ?>">
                     <i class="fa-solid fa-border-all"></i> All Posts
@@ -265,7 +265,7 @@ get_header();
             <div class="bl-subscribe__badge"><i class="fa-solid fa-circle-dot"></i> Admissions 2024–25 Open</div>
             <h2>Ready to Join <span class="bl-subscribe__accent">Beacon Academy?</span></h2>
             <p>Limited seats available. Apply now and secure your child's future with us.</p>
-            <div class="bl-subscribe__btns">
+            <div class="bl-subscribe__btns d-flex align-items-center justify-content-center flex-wrap gap-3">
                 <a href="<?php echo esc_url( home_url('/#enroll') ); ?>" class="btn btn--accent btn--lg">
                     <i class="fa-solid fa-pen-to-square"></i> Apply for Admission
                 </a>

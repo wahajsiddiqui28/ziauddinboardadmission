@@ -1657,8 +1657,7 @@ h1, h2, h3, h4, h5 {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: 0 30px 80px rgba(15,21,53,.18), 0 4px 16px rgba(91,75,255,.15);
-    height: 100%;
-    min-height: 460px;
+    height: 490px;
     position: relative;
 }
 .ab-corner {
@@ -1669,11 +1668,13 @@ h1, h2, h3, h4, h5 {
 .ab-corner--bl { bottom: 10px; left: 10px; border-bottom: 3px solid var(--accent); border-left: 3px solid var(--accent); border-radius: 0 0 0 4px; }
 .ab-corner--br { bottom: 10px; right: 10px; border-bottom: 3px solid var(--primary); border-right: 3px solid var(--primary); border-radius: 0 0 4px 0; }
 .ab-welcome__img {
-    height: 100%; min-height: 460px;
+    height: 100%;
 }
 .ab-welcome__img img {
     width: 100%; height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
 }
 .ab-badge {
     position: absolute;
@@ -2041,6 +2042,7 @@ h1, h2, h3, h4, h5 {
 @media (max-width: 1024px) {
     .ab-welcome__grid { grid-template-columns: 1fr; }
     .ab-welcome__img-wrap { min-height: 380px; }
+    .ab-welcome__img-frame { height: 380px; }
     .ab-stats__grid { grid-template-columns: repeat(2, 1fr); }
     .ab-mv__grid { grid-template-columns: 1fr; }
     .ab-values__grid { grid-template-columns: repeat(2, 1fr); }
@@ -2052,6 +2054,7 @@ h1, h2, h3, h4, h5 {
     .about-hero__trust { flex-direction: column; gap: 12px; }
     .ah-sep { display: none; }
     .ab-welcome__img-wrap { min-height: 300px; }
+    .ab-welcome__img-frame { height: 300px; }
     .ab-badge--exp { left: 10px; bottom: 10px; }
     .ab-badge--students { right: 10px; top: 10px; }
     .ab-checklist { grid-template-columns: 1fr; }

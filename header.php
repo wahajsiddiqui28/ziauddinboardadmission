@@ -26,14 +26,14 @@
             <span>Admissions 2024&ndash;25 are now open &mdash; Limited seats available, apply today!</span>
             <a href="#enroll" class="top-bar__announce-link">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-        <div class="container top-bar__inner">
-            <div class="top-bar__left">
+        <div class="container top-bar__inner d-flex align-items-center justify-content-between">
+            <div class="top-bar__left d-flex align-items-center">
                 <div class="top-bar__item">
                     <span class="top-bar__icon"><i class="fa-solid fa-circle-question"></i></span>
                     <a href="#contact">Have any question?</a>
                 </div>
             </div>
-            <div class="top-bar__right">
+            <div class="top-bar__right d-flex align-items-center gap-2">
                 <div class="top-bar__item">
                     <span class="top-bar__icon tb-icon--mail"><i class="fa-solid fa-envelope"></i></span>
                     <a href="mailto:beaconacademy5@gmail.com">beaconacademy5@gmail.com</a>
@@ -44,7 +44,7 @@
                     <a href="tel:+923162984609">0316 2984609</a>
                 </div>
                 <span class="top-bar__sep"></span>
-                <div class="top-bar__socials">
+                <div class="top-bar__socials d-flex align-items-center gap-1">
                     <a href="#" class="top-bar__social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="top-bar__social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" class="top-bar__social top-bar__social--wa" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
@@ -56,7 +56,7 @@
     <!-- Main Header -->
     <header id="masthead" class="site-header">
         <div class="site-header__glow" aria-hidden="true"></div>
-        <div class="container site-header__inner">
+        <div class="container site-header__inner d-flex align-items-center justify-content-between">
             <div class="site-branding">
                 <?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) : ?>
                     <?php the_custom_logo(); ?>
@@ -90,7 +90,7 @@
                 ?>
             </nav>
 
-            <div class="header-cta">
+            <div class="header-cta d-flex align-items-center gap-3">
                 <span class="admissions-badge"><i class="fa-solid fa-circle-dot"></i> Admissions Open</span>
                 <button class="btn btn--primary btn--shine enrl-open-btn" type="button">
                     <i class="fa-solid fa-pen-to-square"></i> Enroll Now
