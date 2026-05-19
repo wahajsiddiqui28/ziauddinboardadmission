@@ -335,24 +335,24 @@ get_header(); ?>
                             </div>
                         </div>
                         <i class="fa-solid fa-quote-left t-quote"></i>
-                        <p>"Beacon Academy gave me the tools and confidence I needed to excel. The faculty is genuinely caring and result-oriented."</p>
+                        <p>"The Beacon Academy &amp; College provides an excellent learning environment. The teachers are highly professional and very supportive. My child's academic performance improved significantly."</p>
                         <div class="t-author">
-                            <h5>Ayesha Khan</h5>
-                            <span>Student &mdash; Matric Board</span>
+                            <h5>Ali Khan</h5>
+                            <span>Parent</span>
                         </div>
                     </article>
                     <article class="t-slide">
                         <div class="t-slide__top">
-                            <div class="t-avatar t-avatar--green">IS</div>
+                            <div class="t-avatar t-avatar--green">SA</div>
                             <div class="t-stars">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                         </div>
                         <i class="fa-solid fa-quote-left t-quote"></i>
-                        <p>"As a parent, I appreciate the discipline and academic support. My child has improved tremendously in just one semester."</p>
+                        <p>"The small class sizes and personal attention make learning much easier. The teachers explain every topic clearly and help us prepare for board exams."</p>
                         <div class="t-author">
-                            <h5>Mr. Imran Siddiqui</h5>
-                            <span>Parent &mdash; Ziauddin Board</span>
+                            <h5>Sara Ahmed</h5>
+                            <span>Student</span>
                         </div>
                     </article>
                     <article class="t-slide">
@@ -366,7 +366,7 @@ get_header(); ?>
                         <p>"Regular tests and excellent guidance helped me build confidence for my exams. I highly recommend Beacon Academy to serious students."</p>
                         <div class="t-author">
                             <h5>Usman Malik</h5>
-                            <span>Student &mdash; O / A Levels</span>
+                            <span>Student</span>
                         </div>
                     </article>
                 </div>
