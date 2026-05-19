@@ -197,7 +197,7 @@ get_header();
                     <?php wp_nonce_field( 'beacon_contact_form', 'beacon_contact_nonce' ); ?>
 
                     <div class="ct-form__row row g-0">
-                        <div class="ct-field col-md-6">
+                        <div class="ct-field col-md-12">
                             <label for="ct_name">Full Name <span class="req">*</span></label>
                             <div class="ct-input-wrap">
                                 <i class="fa-solid fa-user"></i>
@@ -205,7 +205,7 @@ get_header();
                                     value="<?php echo esc_attr( $values['name'] ); ?>" required>
                             </div>
                         </div>
-                        <div class="ct-field col-md-6">
+                        <div class="ct-field col-md-12">
                             <label for="ct_email">Email Address <span class="req">*</span></label>
                             <div class="ct-input-wrap">
                                 <i class="fa-solid fa-envelope"></i>
@@ -216,7 +216,7 @@ get_header();
                     </div>
 
                     <div class="ct-form__row row g-0">
-                        <div class="ct-field col-md-6">
+                        <div class="ct-field col-md-12">
                             <label for="ct_phone">Phone Number</label>
                             <div class="ct-input-wrap">
                                 <i class="fa-solid fa-phone"></i>
@@ -224,7 +224,7 @@ get_header();
                                     value="<?php echo esc_attr( $values['phone'] ); ?>">
                             </div>
                         </div>
-                        <div class="ct-field col-md-6">
+                        <div class="ct-field col-md-12">
                             <label for="ct_subject">Subject</label>
                             <div class="ct-input-wrap">
                                 <i class="fa-solid fa-tag"></i>

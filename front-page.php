@@ -497,7 +497,7 @@ get_header(); ?>
                                 <?php wp_nonce_field( 'hp_contact_form', 'hp_contact_nonce' ); ?>
 
                                 <div class="hp-form__row row g-0">
-                                    <div class="hp-form__field col-md-6">
+                                    <div class="hp-form__field col-md-12">
                                         <label>Full Name <span class="req">*</span></label>
                                         <div class="hp-input-wrap">
                                             <i class="fa-solid fa-user"></i>
@@ -505,7 +505,7 @@ get_header(); ?>
                                                 value="<?php echo esc_attr( $hp_vals['name'] ); ?>" required>
                                         </div>
                                     </div>
-                                    <div class="hp-form__field col-md-6">
+                                    <div class="hp-form__field col-md-12">
                                         <label>Email Address <span class="req">*</span></label>
                                         <div class="hp-input-wrap">
                                             <i class="fa-solid fa-envelope"></i>
