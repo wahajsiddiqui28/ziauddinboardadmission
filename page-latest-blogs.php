@@ -45,7 +45,10 @@ get_header();
      HERO BANNER
 ======================================== -->
 <section class="bl-hero">
-    <div class="bl-hero__bg"></div>
+    <div class="bl-hero__orb bl-hero__orb--1" aria-hidden="true"></div>
+    <div class="bl-hero__orb bl-hero__orb--2" aria-hidden="true"></div>
+    <div class="bl-hero__orb bl-hero__orb--3" aria-hidden="true"></div>
+    <div class="bl-hero__mesh" aria-hidden="true"></div>
     <div class="container bl-hero__inner">
         <nav class="breadcrumb">
             <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="fa-solid fa-house"></i> Home</a>
@@ -53,11 +56,18 @@ get_header();
             <span>Latest Blogs</span>
         </nav>
         <div class="bl-hero__badge">
-            <i class="fa-solid fa-pen-nib"></i>
+            <i class="fa-solid fa-circle-dot"></i>
             <span>Knowledge Hub</span>
         </div>
         <h1>Latest <span class="ab-accent">Blogs</span> &amp; Articles</h1>
         <p>Stay updated with educational insights, exam tips, school news, and academic guidance from Beacon Academy.</p>
+        <div class="bl-hero__trust">
+            <span><i class="fa-solid fa-newspaper"></i> Educational Insights</span>
+            <span class="bl-hero__sep"></span>
+            <span><i class="fa-solid fa-lightbulb"></i> Exam Tips</span>
+            <span class="bl-hero__sep"></span>
+            <span><i class="fa-solid fa-school"></i> School News</span>
+        </div>
     </div>
     <div class="bl-hero__wave">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -91,6 +101,7 @@ get_header();
                     <div class="bl-featured__noimg"><i class="fa-solid fa-newspaper"></i></div>
                 <?php endif; ?>
                 <div class="bl-featured__overlay"></div>
+                <div class="bl-featured__img-badge"><i class="fa-solid fa-fire"></i> Featured</div>
             </div>
             <div class="bl-featured__content">
                 <div class="bl-featured__meta">
@@ -103,6 +114,7 @@ get_header();
                 </div>
                 <h2><a href="<?php echo esc_url( $feat_link ); ?>"><?php echo esc_html( $feat_title ); ?></a></h2>
                 <p><?php echo esc_html( $feat_exc ); ?></p>
+                <div class="bl-featured__divider" aria-hidden="true"></div>
                 <div class="bl-featured__bottom">
                     <div class="bl-post-author">
                         <div class="bl-author-avatar"><i class="fa-solid fa-user"></i></div>
@@ -245,21 +257,22 @@ get_header();
      NEWSLETTER / CTA BAND
 ======================================== -->
 <section class="bl-subscribe">
-    <div class="container bl-subscribe__inner">
-        <div class="bl-subscribe__text">
-            <span class="eyebrow" style="color:var(--accent); border-color:rgba(255,184,34,.25);">
-                <i class="fa-solid fa-graduation-cap"></i> &nbsp;Admissions Open
-            </span>
-            <h2>Ready to Join Beacon Academy?</h2>
+    <div class="bl-subscribe__orb bl-subscribe__orb--1" aria-hidden="true"></div>
+    <div class="bl-subscribe__orb bl-subscribe__orb--2" aria-hidden="true"></div>
+    <div class="bl-subscribe__mesh" aria-hidden="true"></div>
+    <div class="container">
+        <div class="bl-subscribe__inner">
+            <div class="bl-subscribe__badge"><i class="fa-solid fa-circle-dot"></i> Admissions 2024–25 Open</div>
+            <h2>Ready to Join <span class="bl-subscribe__accent">Beacon Academy?</span></h2>
             <p>Limited seats available. Apply now and secure your child's future with us.</p>
-        </div>
-        <div class="bl-subscribe__btns">
-            <a href="<?php echo esc_url( home_url('/#enroll') ); ?>" class="btn btn--accent btn--lg">
-                <i class="fa-solid fa-pen-to-square"></i> Apply for Admission
-            </a>
-            <a href="tel:+923162984609" class="btn btn--outline-light btn--lg">
-                <i class="fa-solid fa-phone"></i> 0316 2984609
-            </a>
+            <div class="bl-subscribe__btns">
+                <a href="<?php echo esc_url( home_url('/#enroll') ); ?>" class="btn btn--accent btn--lg">
+                    <i class="fa-solid fa-pen-to-square"></i> Apply for Admission
+                </a>
+                <a href="tel:+923162984609" class="btn btn--outline-light btn--lg">
+                    <i class="fa-solid fa-phone"></i> 0316 2984609
+                </a>
+            </div>
         </div>
     </div>
 </section>

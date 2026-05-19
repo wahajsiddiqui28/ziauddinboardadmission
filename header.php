@@ -21,38 +21,64 @@
 
     <!-- Top Info Bar -->
     <div class="top-bar">
+        <div class="top-bar__announce">
+            <span class="top-bar__announce-dot"></span>
+            <span>Admissions 2024&ndash;25 are now open &mdash; Limited seats available, apply today!</span>
+            <a href="#enroll" class="top-bar__announce-link">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
         <div class="container top-bar__inner">
-            <div class="top-bar__item">
-                <a href="#contact"><i class="fa-solid fa-circle-question"></i> <span>Have any question?</span></a>
+            <div class="top-bar__left">
+                <div class="top-bar__item">
+                    <span class="top-bar__icon"><i class="fa-solid fa-circle-question"></i></span>
+                    <a href="#contact">Have any question?</a>
+                </div>
             </div>
-            <div class="top-bar__item">
-                <i class="fa-solid fa-envelope"></i>
-                <a href="mailto:beaconacademy5@gmail.com">beaconacademy5@gmail.com</a>
-            </div>
-            <div class="top-bar__item">
-                <i class="fa-solid fa-phone"></i>
-                <a href="tel:+923162984609">0316 2984609</a>
+            <div class="top-bar__right">
+                <div class="top-bar__item">
+                    <span class="top-bar__icon tb-icon--mail"><i class="fa-solid fa-envelope"></i></span>
+                    <a href="mailto:beaconacademy5@gmail.com">beaconacademy5@gmail.com</a>
+                </div>
+                <span class="top-bar__sep"></span>
+                <div class="top-bar__item">
+                    <span class="top-bar__icon tb-icon--phone"><i class="fa-solid fa-phone-volume"></i></span>
+                    <a href="tel:+923162984609">0316 2984609</a>
+                </div>
+                <span class="top-bar__sep"></span>
+                <div class="top-bar__socials">
+                    <a href="#" class="top-bar__social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="top-bar__social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="top-bar__social top-bar__social--wa" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Main Header -->
     <header id="masthead" class="site-header">
+        <div class="site-header__glow" aria-hidden="true"></div>
         <div class="container site-header__inner">
             <div class="site-branding">
                 <?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) : ?>
                     <?php the_custom_logo(); ?>
                 <?php else : ?>
                     <a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                        <span class="brand__mark"><i class="fa-solid fa-graduation-cap"></i></span>
-                        <span class="brand__text">The Beacon <em>Academy &amp; College</em></span>
+                        <span class="brand__mark">
+                            <span class="brand__ring" aria-hidden="true"></span>
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </span>
+                        <div class="brand__text">
+                            <span class="brand__name">The Beacon</span>
+                            <em class="brand__sub">Academy &amp; College</em>
+                        </div>
                     </a>
                 <?php endif; ?>
             </div>
 
             <nav id="site-navigation" class="main-navigation">
                 <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                    <i class="fa-solid fa-bars"></i>
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
                 </button>
                 <?php
                 wp_nav_menu( array(
@@ -65,7 +91,8 @@
             </nav>
 
             <div class="header-cta">
-                <button class="btn btn--primary enrl-open-btn" type="button">
+                <span class="admissions-badge"><i class="fa-solid fa-circle-dot"></i> Admissions Open</span>
+                <button class="btn btn--primary btn--shine enrl-open-btn" type="button">
                     <i class="fa-solid fa-pen-to-square"></i> Enroll Now
                 </button>
             </div>
