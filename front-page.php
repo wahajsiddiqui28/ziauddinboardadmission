@@ -13,8 +13,9 @@ get_header(); ?>
         <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
         <div class="hero__bg-dots" aria-hidden="true"></div>
 
-        <div class="container hero__grid">
-            <div class="hero__content">
+        <div class="container">
+        <div class="row hero__grid">
+            <div class="col-lg-6 hero__content">
 
                 <div class="hero__pill-wrap d-flex align-items-center">
                     <span class="hero__live-dot"></span>
@@ -59,7 +60,7 @@ get_header(); ?>
 
             </div>
 
-            <div class="hero__visual">
+            <div class="col-lg-6 hero__visual">
 
                 <!-- Decorative glow blobs -->
                 <div class="hero__img-glow hero__img-glow--gold" aria-hidden="true"></div>
@@ -119,6 +120,7 @@ get_header(); ?>
                 </div>
 
             </div>
+        </div>
         </div>
 
         <div class="hero__wave" aria-hidden="true">
@@ -218,31 +220,41 @@ get_header(); ?>
         <div class="stats__orb stats__orb--1" aria-hidden="true"></div>
         <div class="stats__orb stats__orb--2" aria-hidden="true"></div>
         <div class="stats__orb stats__orb--3" aria-hidden="true"></div>
-        <div class="container stats__grid">
-            <div class="stat-card stat-card--purple">
+        <div class="container">
+        <div class="row stats__grid">
+            <div class="col-6 col-lg-3">
+            <div class="stat-card stat-card--purple h-100">
                 <div class="stat-card__icon-wrap"><i class="fa-solid fa-user-graduate"></i></div>
                 <h3 data-count="1000">1,000+</h3>
                 <p>Happy Students</p>
                 <span class="stat-card__line" aria-hidden="true"></span>
             </div>
-            <div class="stat-card stat-card--green">
+            </div>
+            <div class="col-6 col-lg-3">
+            <div class="stat-card stat-card--green h-100">
                 <div class="stat-card__icon-wrap"><i class="fa-solid fa-map-location-dot"></i></div>
                 <h3 data-count="4">4+</h3>
                 <p>Centers</p>
                 <span class="stat-card__line" aria-hidden="true"></span>
             </div>
-            <div class="stat-card stat-card--gold">
+            </div>
+            <div class="col-6 col-lg-3">
+            <div class="stat-card stat-card--gold h-100">
                 <div class="stat-card__icon-wrap"><i class="fa-solid fa-star-of-life"></i></div>
                 <h3 data-count="20">20+</h3>
                 <p>Special Services</p>
                 <span class="stat-card__line" aria-hidden="true"></span>
             </div>
-            <div class="stat-card stat-card--blue">
+            </div>
+            <div class="col-6 col-lg-3">
+            <div class="stat-card stat-card--blue h-100">
                 <div class="stat-card__icon-wrap"><i class="fa-solid fa-award"></i></div>
                 <h3 data-count="10">10</h3>
                 <p>Years of Experience</p>
                 <span class="stat-card__line" aria-hidden="true"></span>
             </div>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -254,7 +266,7 @@ get_header(); ?>
                 <h2>Our Academic Programs</h2>
                 <p>"Providing Quality Education for All Major Boards with Expert Faculty and Modern Learning Methods."</p>
             </div>
-            <div class="programs__grid">
+            <div class="row g-4 programs__grid">
                 <?php
                 $programs = array(
                     array( 'icon' => 'fa-graduation-cap', 'title' => 'Ziauddin Board', 'color' => 'purple', 'badge' => 'Board Certified',  'desc' => 'Complete preparation for Ziauddin Board exams with focused curriculum and past paper practice.' ),
@@ -263,7 +275,8 @@ get_header(); ?>
                     array( 'icon' => 'fa-book-open',      'title' => 'Intermediate',   'color' => 'amber',  'badge' => 'HSC I &amp; II',    'desc' => 'Intermediate Pre-Medical &amp; Pre-Engineering with result-oriented coaching for board exams.' ),
                 );
                 foreach ( $programs as $p ) : ?>
-                    <article class="program-card program-card--<?php echo esc_attr( $p['color'] ); ?>">
+                    <div class="col-md-6">
+                    <article class="program-card program-card--<?php echo esc_attr( $p['color'] ); ?> h-100">
                         <div class="program-card__header d-flex align-items-center justify-content-between">
                             <div class="program-card__icon"><i class="fa-solid <?php echo esc_attr( $p['icon'] ); ?>"></i></div>
                             <span class="program-card__badge"><?php echo $p['badge']; ?></span>
@@ -273,6 +286,7 @@ get_header(); ?>
                         <a href="#" class="program-card__link d-inline-flex align-items-center gap-2">Explore Program <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="program-card__bg-glow" aria-hidden="true"></div>
                     </article>
+                    </div>
                 <?php endforeach; ?>
             </div>
         </div>

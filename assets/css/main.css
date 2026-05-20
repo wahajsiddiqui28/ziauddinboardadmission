@@ -447,12 +447,16 @@ h1, h2, h3, h4, h5 {
 }
 
 .hero__grid {
-    display: grid;
-    grid-template-columns: 1.12fr .88fr;
-    gap: 60px;
+    /* layout via Bootstrap .row + .col-lg-6; original 1.12/.88 ratio & 60px gap pinned below */
+    --bs-gutter-x: 60px;
+    --bs-gutter-y: 60px;
     align-items: center;
     position: relative;
     z-index: 1;
+}
+@media (min-width: 1025px) {
+    .hero__grid > .hero__content { flex: 0 0 auto; width: 56%; }
+    .hero__grid > .hero__visual  { flex: 0 0 auto; width: 44%; }
 }
 
 /* Heading */
@@ -1072,9 +1076,9 @@ h1, h2, h3, h4, h5 {
 .stats__orb--2 { width: 260px; height: 260px; background: rgba(255,184,34,.15); bottom: -60px; right: 10%; }
 .stats__orb--3 { width: 200px; height: 200px; background: rgba(16,185,129,.12); top: 30%; right: -40px; }
 .stats__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    /* layout via Bootstrap .row + .col-6.col-lg-3; gutter pinned to original 20px */
+    --bs-gutter-x: 20px;
+    --bs-gutter-y: 20px;
     position: relative; z-index: 1;
 }
 .stat-card {
@@ -1145,11 +1149,7 @@ h1, h2, h3, h4, h5 {
 
 /* ============ Programs ============ */
 .programs { background: var(--bg-soft); }
-.programs__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
+/* .programs__grid layout now handled by Bootstrap .row.g-4 + .col-md-6 */
 .program-card {
     background: #fff;
     border-radius: var(--radius-lg);
@@ -3398,9 +3398,10 @@ h1, h2, h3, h4, h5 {
 
 /* ============ Responsive ============ */
 @media (max-width: 1024px) {
-    .hero__grid { grid-template-columns: 1fr; }
+    .hero__grid > .hero__content,
+    .hero__grid > .hero__visual { flex: 0 0 auto; width: 100%; }
     .why__features { grid-template-columns: repeat(2, 1fr); }
-    .stats__grid { grid-template-columns: repeat(2, 1fr); }
+    .stats__grid > [class*="col-"] { flex: 0 0 50%; max-width: 50%; }
     .site-footer__grid { grid-template-columns: 1fr 1fr; }
     .hero__visual { min-height: 420px; margin-top: 30px; }
     .about__media { max-width: 560px; margin: 0 auto; }
@@ -3433,7 +3434,6 @@ h1, h2, h3, h4, h5 {
     .main-navigation.is-open #primary-menu { display: flex; }
     .main-navigation #primary-menu li { width: 100%; padding: 10px 0; border-bottom: 1px solid var(--border); }
     .header-cta { display: none; }
-    .programs__grid { grid-template-columns: 1fr; }
     .why__features { grid-template-columns: 1fr; }
     .check-list { grid-template-columns: 1fr; }
     .site-footer__grid { grid-template-columns: 1fr; }
