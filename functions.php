@@ -32,10 +32,10 @@ function ziauddin_enqueue_assets() {
 
     // Theme styles — depend on bootstrap so they load after and override Bootstrap defaults
     wp_enqueue_style( 'ziauddin-style', get_stylesheet_uri(), array( 'bootstrap' ), '1.0.0' );
-    wp_enqueue_style( 'ziauddin-main', get_template_directory_uri() . '/assets/css/main.css', array( 'ziauddin-style' ), '1.0.1' );
+    wp_enqueue_style( 'ziauddin-main', get_template_directory_uri() . '/assets/css/main.css', array( 'ziauddin-style' ), '1.0.6' );
 
     // Theme script — depends on bootstrap-bundle
-    wp_enqueue_script( 'ziauddin-main', get_template_directory_uri() . '/assets/js/main.js', array( 'bootstrap-bundle' ), '1.0.1', true );
+    wp_enqueue_script( 'ziauddin-main', get_template_directory_uri() . '/assets/js/main.js', array( 'bootstrap-bundle' ), '1.0.6', true );
 }
 add_action( 'wp_enqueue_scripts', 'ziauddin_enqueue_assets' );
 

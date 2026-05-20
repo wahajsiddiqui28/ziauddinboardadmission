@@ -6,11 +6,49 @@
         // Mobile menu toggle
         var navToggle = document.querySelector('.menu-toggle');
         var nav = document.querySelector('.main-navigation');
+        var mobileOverlay = document.querySelector('.mobile-menu-overlay');
+        var navClose = document.querySelector('.mobile-menu-close');
+
+        function openMobileMenu() {
+            if (nav) nav.classList.add('is-open');
+            if (mobileOverlay) mobileOverlay.classList.add('is-visible');
+            if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            if (nav) nav.classList.remove('is-open');
+            if (mobileOverlay) mobileOverlay.classList.remove('is-visible');
+            if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
         if (navToggle && nav) {
             navToggle.addEventListener('click', function () {
-                nav.classList.toggle('is-open');
-                var expanded = nav.classList.contains('is-open');
-                navToggle.setAttribute('aria-expanded', expanded);
+                if (nav.classList.contains('is-open')) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            });
+        }
+        if (navClose) {
+            navClose.addEventListener('click', closeMobileMenu);
+        }
+        if (mobileOverlay) {
+            mobileOverlay.addEventListener('click', closeMobileMenu);
+        }
+        // Close mobile menu on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && nav && nav.classList.contains('is-open')) {
+                closeMobileMenu();
+            }
+        });
+        // Close mobile menu when clicking a menu link
+        if (nav) {
+            nav.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    closeMobileMenu();
+                });
             });
         }
 

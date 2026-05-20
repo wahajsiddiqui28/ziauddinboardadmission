@@ -1,8 +1,9 @@
     </div><!-- #content -->
 
     <footer id="colophon" class="site-footer">
-        <div class="container site-footer__grid">
-            <div class="footer-col">
+        <div class="container">
+        <div class="row site-footer__grid">
+            <div class="footer-col col-12 col-md-6 col-lg">
                 <a class="brand brand--light d-inline-flex align-items-center" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <span class="brand__mark"><i class="fa-solid fa-graduation-cap"></i></span>
                     <span class="brand__text d-flex flex-column">The Beacon <em>Academy &amp; College</em></span>
@@ -16,7 +17,7 @@
                 </div>
             </div>
 
-            <div class="footer-col">
+            <div class="footer-col col-12 col-md-6 col-lg">
                 <h4>Quick Links</h4>
                 <?php
                 wp_nav_menu( array(
@@ -28,7 +29,7 @@
                 ?>
             </div>
 
-            <div class="footer-col">
+            <div class="footer-col col-12 col-md-6 col-lg">
                 <h4>Programs</h4>
                 <ul class="footer-list">
                     <li><a href="#"><i class="fa-solid fa-angle-right"></i> Ziauddin Board</a></li>
@@ -38,7 +39,7 @@
                 </ul>
             </div>
 
-            <div class="footer-col">
+            <div class="footer-col col-12 col-md-6 col-lg">
                 <h4>Contact</h4>
                 <ul class="footer-contact">
                     <li><i class="fa-solid fa-location-dot"></i> Karachi, Pakistan</li>
@@ -46,6 +47,7 @@
                     <li><i class="fa-solid fa-envelope"></i> beaconacademy5@gmail.com</li>
                 </ul>
             </div>
+        </div>
         </div>
 
         <div class="site-info">
@@ -96,23 +98,23 @@
         <form class="enrl-form" id="enrl-form" novalidate>
             <?php wp_nonce_field( 'enroll_submit', 'enroll_nonce' ); ?>
 
-            <div class="enrl-row">
-                <div class="enrl-field">
+            <div class="row enrl-row">
+                <div class="enrl-field col-sm-6">
                     <label>First Name <span class="req">*</span></label>
                     <input type="text" name="first_name" placeholder="First Name" required>
                 </div>
-                <div class="enrl-field">
+                <div class="enrl-field col-sm-6">
                     <label>Last Name <span class="req">*</span></label>
                     <input type="text" name="last_name" placeholder="Last Name" required>
                 </div>
             </div>
 
-            <div class="enrl-row">
-                <div class="enrl-field">
+            <div class="row enrl-row">
+                <div class="enrl-field col-sm-6">
                     <label>Date of Birth <span class="req">*</span></label>
                     <input type="date" name="dob" required>
                 </div>
-                <div class="enrl-field">
+                <div class="enrl-field col-sm-6">
                     <label>Gender <span class="req">*</span></label>
                     <select name="gender" required>
                         <option value="">Select Gender</option>
@@ -141,12 +143,12 @@
                 <textarea name="address" rows="2" placeholder="Your full address..." required></textarea>
             </div>
 
-            <div class="enrl-row">
-                <div class="enrl-field">
+            <div class="row enrl-row">
+                <div class="enrl-field col-sm-6">
                     <label>Contact Number <span class="req">*</span></label>
                     <input type="tel" name="phone" placeholder="0300 0000000" required>
                 </div>
-                <div class="enrl-field">
+                <div class="enrl-field col-sm-6">
                     <label>Email Address</label>
                     <input type="email" name="email" placeholder="your@email.com">
                 </div>

@@ -93,8 +93,8 @@ get_header();
 ?>
 <section class="bl-featured">
     <div class="container">
-        <div class="bl-featured__inner">
-            <div class="bl-featured__img">
+        <div class="row g-0 bl-featured__inner">
+            <div class="bl-featured__img col-lg">
                 <?php if ( $feat_img ) : ?>
                     <img src="<?php echo esc_url( $feat_img ); ?>" alt="<?php echo esc_attr( $feat_title ); ?>">
                 <?php else : ?>
@@ -103,7 +103,7 @@ get_header();
                 <div class="bl-featured__overlay"></div>
                 <div class="bl-featured__img-badge"><i class="fa-solid fa-fire"></i> Featured</div>
             </div>
-            <div class="bl-featured__content">
+            <div class="bl-featured__content col-lg">
                 <div class="bl-featured__meta">
                     <span class="bl-feat-label"><i class="fa-solid fa-bookmark"></i> Featured Post</span>
                     <?php if ( $feat_cats ) : ?>
@@ -164,7 +164,7 @@ get_header();
 
         <!-- Blog Grid -->
         <?php if ( $blog_query->have_posts() ) : ?>
-            <div class="bl-grid">
+            <div class="row g-4 bl-grid">
                 <?php $i = 0; while ( $blog_query->have_posts() ) : $blog_query->the_post(); $i++;
                     $post_img    = get_the_post_thumbnail_url( null, 'medium_large' );
                     $post_cats   = get_the_category();
@@ -175,7 +175,8 @@ get_header();
                     $post_author = get_the_author();
                     $read_time   = max( 1, ceil( str_word_count( get_the_content() ) / 200 ) );
                 ?>
-                <article class="bl-card" style="animation-delay: <?php echo esc_attr( ( $i * 0.07 ) ); ?>s">
+                <div class="col-12 col-md-6 col-lg-4">
+                <article class="bl-card h-100" style="animation-delay: <?php echo esc_attr( ( $i * 0.07 ) ); ?>s">
                     <a href="<?php echo esc_url( $post_link ); ?>" class="bl-card__img-link" tabindex="-1">
                         <div class="bl-card__img">
                             <?php if ( $post_img ) : ?>
@@ -206,6 +207,7 @@ get_header();
                         </div>
                     </div>
                 </article>
+                </div>
                 <?php endwhile; wp_reset_postdata(); ?>
             </div>
 

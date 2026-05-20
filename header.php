@@ -56,6 +56,11 @@
     <!-- Main Header -->
     <header id="masthead" class="site-header">
         <div class="site-header__glow" aria-hidden="true"></div>
+        <div class="mobile-top-cta">
+            <button class="btn btn--primary btn--shine enrl-open-btn" type="button">
+                <i class="fa-solid fa-pen-to-square"></i> Enroll Now
+            </button>
+        </div>
         <div class="container site-header__inner d-flex align-items-center justify-content-between">
             <div class="site-branding">
                 <?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) : ?>
@@ -74,12 +79,36 @@
                 <?php endif; ?>
             </div>
 
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle__line"></span>
+                <span class="menu-toggle__line"></span>
+                <span class="menu-toggle__line"></span>
+            </button>
+
+            <div class="mobile-menu-overlay" aria-hidden="true"></div>
+
             <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                    <span class="menu-toggle__line"></span>
-                    <span class="menu-toggle__line"></span>
-                    <span class="menu-toggle__line"></span>
-                </button>
+                <div class="mobile-menu-header">
+                    <div class="mobile-menu-logo">
+                        <?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) : ?>
+                            <?php the_custom_logo(); ?>
+                        <?php else : ?>
+                            <a class="brand d-inline-flex align-items-center" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                <span class="brand__mark">
+                                    <span class="brand__ring" aria-hidden="true"></span>
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </span>
+                                <div class="brand__text d-flex flex-column">
+                                    <span class="brand__name">The Beacon</span>
+                                    <em class="brand__sub">Academy &amp; College</em>
+                                </div>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    <button class="mobile-menu-close" aria-label="Close menu">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
                 <?php
                 wp_nav_menu( array(
                     'theme_location' => 'primary',
@@ -88,6 +117,21 @@
                     'fallback_cb'    => 'ziauddin_default_menu',
                 ) );
                 ?>
+                <div class="mobile-menu-enroll">
+                    <button class="btn btn--primary btn--shine enrl-open-btn" type="button">
+                        <i class="fa-solid fa-pen-to-square"></i> Enroll Now
+                    </button>
+                </div>
+                <div class="mobile-menu-footer">
+                    <div class="mobile-menu-contact">
+                        <a href="tel:+923162984609"><i class="fa-solid fa-phone"></i> 0316 2984609</a>
+                        <a href="mailto:beaconacademy5@gmail.com"><i class="fa-solid fa-envelope"></i> beaconacademy5@gmail.com</a>
+                    </div>
+                    <div class="mobile-menu-socials">
+                        <a href="https://www.facebook.com/share/1ELVhLFheD/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://wa.me/03162984609" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
             </nav>
 
             <div class="header-cta d-flex align-items-center gap-3">

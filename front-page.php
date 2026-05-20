@@ -305,7 +305,7 @@ get_header(); ?>
                 <a href="#" class="btn btn--accent">Discover More <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
-            <div class="why__features">
+            <div class="row why__features">
                 <?php
                 $features = array(
                     array( 'icon' => 'fa-user-graduate',   'color' => 'purple', 'title' => 'Experienced Faculty',    'text' => 'Highly qualified teachers dedicated to student success.' ),
@@ -316,7 +316,8 @@ get_header(); ?>
                     array( 'icon' => 'fa-bullseye',        'color' => 'cyan',   'title' => 'Personalized Attention', 'text' => 'Customized guidance according to each student\'s learning needs.' ),
                 );
                 foreach ( $features as $f ) : ?>
-                    <div class="feature feature--<?php echo esc_attr( $f['color'] ); ?>">
+                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="feature feature--<?php echo esc_attr( $f['color'] ); ?> h-100">
                         <div class="feature__icon-wrap">
                             <div class="feature__icon"><i class="fa-solid <?php echo esc_attr( $f['icon'] ); ?>"></i></div>
                         </div>
@@ -324,6 +325,7 @@ get_header(); ?>
                             <h4><?php echo esc_html( $f['title'] ); ?></h4>
                             <p><?php echo esc_html( $f['text'] ); ?></p>
                         </div>
+                    </div>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -399,7 +401,7 @@ get_header(); ?>
     </section>
 
     <!-- Contact + Location -->
-    <section class="section hp-contact" id="contact">
+    <section class="section hp-contact" id="contact" style="padding: 40px 0;">
         <div class="container">
             <div class="section-head text-center">
                 <span class="eyebrow"><i class="fa-solid fa-envelope"></i> &nbsp;Get In Touch</span>
@@ -407,40 +409,48 @@ get_header(); ?>
                 <p>"We'd love to hear from you. Reach out for admissions, programs, or any enquiries — our team responds promptly."</p>
             </div>
 
-            <div class="hp-contact__grid">
+            <div class="row hp-contact__grid">
 
                 <!-- LEFT: Info + Map -->
-                <div class="hp-contact__left">
+                <div class="hp-contact__left col-lg-6">
 
                     <!-- Info Cards -->
-                    <div class="hp-info-cards">
-                        <div class="hp-info-card">
+                    <div class="row hp-info-cards">
+                        <div class="col-sm-6">
+                        <div class="hp-info-card h-100">
                             <div class="hp-info-icon" style="--ic:#5b4bff;"><i class="fa-solid fa-location-dot"></i></div>
                             <div>
                                 <strong>Our Address</strong>
                                 <span>C-1869 &amp; A-83, Behind Gulzar-e-Hijri Police Station,<br>Scheme 33, Karachi – 75620</span>
                             </div>
                         </div>
-                        <div class="hp-info-card">
+                        </div>
+                        <div class="col-sm-6">
+                        <div class="hp-info-card h-100">
                             <div class="hp-info-icon" style="--ic:#10b981;"><i class="fa-solid fa-phone-volume"></i></div>
                             <div>
                                 <strong>Call Us</strong>
                                 <span><a href="tel:+923162984609">0316 2984609</a></span>
                             </div>
                         </div>
-                        <div class="hp-info-card">
+                        </div>
+                        <div class="col-sm-6">
+                        <div class="hp-info-card h-100">
                             <div class="hp-info-icon" style="--ic:#f59e0b;"><i class="fa-solid fa-envelope-open-text"></i></div>
                             <div>
                                 <strong>Email Us</strong>
                                 <span><a href="mailto:beaconacademy5@gmail.com">beaconacademy5@gmail.com</a></span>
                             </div>
                         </div>
-                        <div class="hp-info-card">
+                        </div>
+                        <div class="col-sm-6">
+                        <div class="hp-info-card h-100">
                             <div class="hp-info-icon" style="--ic:#e84393;"><i class="fa-solid fa-clock"></i></div>
                             <div>
                                 <strong>Office Hours</strong>
                                 <span>Mon – Sat: 8:00 AM – 4:00 PM</span>
                             </div>
+                        </div>
                         </div>
                     </div>
 
@@ -460,7 +470,7 @@ get_header(); ?>
                 </div>
 
                 <!-- RIGHT: Contact Form -->
-                <div class="hp-contact__right">
+                <div class="hp-contact__right col-lg-6">
                     <div class="hp-form-wrap">
                         <div class="hp-form-header">
                             <span class="eyebrow"><i class="fa-solid fa-paper-plane"></i> &nbsp;Send Us a Message</span>
@@ -512,8 +522,8 @@ get_header(); ?>
                             <form class="hp-form" method="post" action="<?php echo esc_url( home_url('/#contact') ); ?>">
                                 <?php wp_nonce_field( 'hp_contact_form', 'hp_contact_nonce' ); ?>
 
-                                <div class="hp-form__row row g-0">
-                                    <div class="hp-form__field col-md-12">
+                                <div class="hp-form__row row">
+                                    <div class="hp-form__field col-6">
                                         <label>Full Name <span class="req">*</span></label>
                                         <div class="hp-input-wrap">
                                             <i class="fa-solid fa-user"></i>
@@ -521,7 +531,7 @@ get_header(); ?>
                                                 value="<?php echo esc_attr( $hp_vals['name'] ); ?>" required>
                                         </div>
                                     </div>
-                                    <div class="hp-form__field col-md-12">
+                                    <div class="hp-form__field col-6">
                                         <label>Email Address <span class="req">*</span></label>
                                         <div class="hp-input-wrap">
                                             <i class="fa-solid fa-envelope"></i>

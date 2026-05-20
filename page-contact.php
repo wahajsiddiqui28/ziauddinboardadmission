@@ -66,9 +66,10 @@ get_header();
 ======================================== -->
 <div class="ct-quick-bar">
     <div class="container">
-        <div class="ct-quick-bar__grid">
+        <div class="row ct-quick-bar__grid">
 
-            <div class="ct-quick-card d-flex align-items-center gap-3">
+            <div class="col-6 col-lg-3">
+            <div class="ct-quick-card d-flex align-items-center gap-3 h-100">
                 <div class="ct-quick-icon d-flex align-items-center justify-content-center" style="--qc:#5b4bff;">
                     <i class="fa-solid fa-location-dot"></i>
                 </div>
@@ -77,8 +78,10 @@ get_header();
                     <span>Scheme 33, Gulzar-e-Hijri, Karachi</span>
                 </div>
             </div>
+            </div>
 
-            <div class="ct-quick-card d-flex align-items-center gap-3">
+            <div class="col-6 col-lg-3">
+            <div class="ct-quick-card d-flex align-items-center gap-3 h-100">
                 <div class="ct-quick-icon d-flex align-items-center justify-content-center" style="--qc:#10b981;">
                     <i class="fa-solid fa-phone-volume"></i>
                 </div>
@@ -87,8 +90,10 @@ get_header();
                     <span><a href="tel:+923162984609">0316 2984609</a></span>
                 </div>
             </div>
+            </div>
 
-            <div class="ct-quick-card d-flex align-items-center gap-3">
+            <div class="col-6 col-lg-3">
+            <div class="ct-quick-card d-flex align-items-center gap-3 h-100">
                 <div class="ct-quick-icon d-flex align-items-center justify-content-center" style="--qc:#f59e0b;">
                     <i class="fa-solid fa-envelope-open-text"></i>
                 </div>
@@ -97,8 +102,10 @@ get_header();
                     <span><a href="mailto:beaconacademy5@gmail.com">beaconacademy5@gmail.com</a></span>
                 </div>
             </div>
+            </div>
 
-            <div class="ct-quick-card d-flex align-items-center gap-3">
+            <div class="col-6 col-lg-3">
+            <div class="ct-quick-card d-flex align-items-center gap-3 h-100">
                 <div class="ct-quick-icon d-flex align-items-center justify-content-center" style="--qc:#e84393;">
                     <i class="fa-solid fa-clock"></i>
                 </div>
@@ -106,6 +113,7 @@ get_header();
                     <strong>Office Hours</strong>
                     <span>Mon – Sat: 8 AM – 4 PM</span>
                 </div>
+            </div>
             </div>
 
         </div>
@@ -116,10 +124,11 @@ get_header();
      MAIN CONTACT SECTION
 ======================================== -->
 <section class="section ct-main">
-    <div class="container ct-main__grid">
+    <div class="container">
+    <div class="row ct-main__grid">
 
         <!-- LEFT: Info Panel -->
-        <aside class="ct-info-panel">
+        <aside class="ct-info-panel col-lg">
             <div class="ct-info-panel__top">
                 <span class="eyebrow"><i class="fa-solid fa-circle-info"></i> &nbsp;Contact Information</span>
                 <h2>Let's Start a Conversation</h2>
@@ -171,7 +180,7 @@ get_header();
         </aside>
 
         <!-- RIGHT: Contact Form -->
-        <div class="ct-form-wrap">
+        <div class="ct-form-wrap col-lg">
             <?php if ( $sent ) : ?>
                 <div class="ct-success">
                     <div class="ct-success__icon"><i class="fa-solid fa-circle-check"></i></div>
@@ -196,8 +205,8 @@ get_header();
                 <form class="ct-form" method="post" action="<?php the_permalink(); ?>#contact-form" id="contact-form" novalidate>
                     <?php wp_nonce_field( 'beacon_contact_form', 'beacon_contact_nonce' ); ?>
 
-                    <div class="ct-form__row row g-0">
-                        <div class="ct-field col-md-12">
+                    <div class="ct-form__row row">
+                        <div class="ct-field col-md-6">
                             <label for="ct_name">Full Name <span class="req">*</span></label>
                             <div class="ct-input-wrap d-flex align-items-center">
                                 <i class="fa-solid fa-user"></i>
@@ -205,7 +214,7 @@ get_header();
                                     value="<?php echo esc_attr( $values['name'] ); ?>" required>
                             </div>
                         </div>
-                        <div class="ct-field col-md-12">
+                        <div class="ct-field col-md-6">
                             <label for="ct_email">Email Address <span class="req">*</span></label>
                             <div class="ct-input-wrap d-flex align-items-center">
                                 <i class="fa-solid fa-envelope"></i>
@@ -215,8 +224,8 @@ get_header();
                         </div>
                     </div>
 
-                    <div class="ct-form__row row g-0">
-                        <div class="ct-field col-md-12">
+                    <div class="ct-form__row row">
+                        <div class="ct-field col-md-6">
                             <label for="ct_phone">Phone Number</label>
                             <div class="ct-input-wrap d-flex align-items-center">
                                 <i class="fa-solid fa-phone"></i>
@@ -224,7 +233,7 @@ get_header();
                                     value="<?php echo esc_attr( $values['phone'] ); ?>">
                             </div>
                         </div>
-                        <div class="ct-field col-md-12">
+                        <div class="ct-field col-md-6">
                             <label for="ct_subject">Subject</label>
                             <div class="ct-input-wrap d-flex align-items-center">
                                 <i class="fa-solid fa-tag"></i>
@@ -258,6 +267,7 @@ get_header();
             <?php endif; ?>
         </div>
 
+    </div>
     </div>
 </section>
 

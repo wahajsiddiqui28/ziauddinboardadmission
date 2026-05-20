@@ -91,10 +91,11 @@
      CONTENT + SIDEBAR
 ======================================== -->
 <div class="sp-body">
-    <div class="container sp-body__grid">
+    <div class="container">
+    <div class="row sp-body__grid">
 
         <!-- Main Article -->
-        <article class="sp-article">
+        <article class="sp-article col-lg">
 
             <!-- Featured image (only if no thumbnail used as hero bg) -->
             <?php if ( $post_thumb ) : ?>
