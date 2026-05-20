@@ -131,83 +131,85 @@ get_header(); ?>
     <!-- About -->
     <section class="section about-section">
         <div class="about-section__bg-shape" aria-hidden="true"></div>
-        <div class="container about__grid">
+        <div class="container">
+            <div class="row align-items-center about__grid">
 
-            <!-- Media / Image Side -->
-            <div class="about__media">
-                <div class="about__media-bg" aria-hidden="true"></div>
-                <div class="about__image">
-                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=80" alt="Beacon Academy Building">
-                    <div class="about__img-overlay" aria-hidden="true"></div>
-                </div>
-                <div class="about__exp-badge">
-                    <strong>10+</strong>
-                    <span>Years of<br>Excellence</span>
-                </div>
-                <div class="about__mini-card d-flex align-items-center">
-                    <div class="about__mini-icon"><i class="fa-solid fa-users"></i></div>
-                    <div>
-                        <strong>650+</strong>
-                        <span>Active Students</span>
+                <!-- Media / Image Side -->
+                <div class="col-lg-6 about__media">
+                    <div class="about__media-bg" aria-hidden="true"></div>
+                    <div class="about__image">
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=80" alt="Beacon Academy Building">
+                        <div class="about__img-overlay" aria-hidden="true"></div>
+                    </div>
+                    <div class="about__exp-badge">
+                        <strong>10+</strong>
+                        <span>Years of<br>Excellence</span>
+                    </div>
+                    <div class="about__mini-card d-flex align-items-center">
+                        <div class="about__mini-icon"><i class="fa-solid fa-users"></i></div>
+                        <div>
+                            <strong>650+</strong>
+                            <span>Active Students</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Content Side -->
+                <div class="col-lg-6 about__content">
+                    <div class="about__eyebrow-wrap d-flex align-items-center">
+                        <span class="about__eyebrow-line"></span>
+                        <span class="about__eyebrow-text">About The Beacon Academy &amp; College</span>
+                    </div>
+
+                    <h2>Building Future Leaders Under <span class="about__title-accent">Zia Uddin Board</span></h2>
+
+                    <p>The Beacon Academy &amp; College proudly delivers high-quality education under the Zia Uddin Board. We focus on academic excellence, character development, and modern learning to prepare every student for a confident and successful future.</p>
+
+                    <div class="about__features row">
+                        <div class="col-md-6 about__feature d-flex align-items-start">
+                            <div class="about__feat-icon af-purple"><i class="fa-solid fa-user-graduate"></i></div>
+                            <div>
+                                <h5>Qualified Faculty</h5>
+                                <p>Experienced teachers dedicated to student excellence.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 about__feature d-flex align-items-start">
+                            <div class="about__feat-icon af-green"><i class="fa-solid fa-chalkboard-user"></i></div>
+                            <div>
+                                <h5>Modern Classrooms</h5>
+                                <p>Smart boards and digital learning environment.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 about__feature d-flex align-items-start">
+                            <div class="about__feat-icon af-amber"><i class="fa-solid fa-trophy"></i></div>
+                            <div>
+                                <h5>Academic Excellence</h5>
+                                <p>Consistent top results in board examinations.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 about__feature d-flex align-items-start">
+                            <div class="about__feat-icon af-pink"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <h5>Safe Environment</h5>
+                                <p>Disciplined, inclusive and supportive campus.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about__cta-row d-flex align-items-center flex-wrap gap-3">
+                        <a href="<?php echo esc_url( get_permalink( get_page_by_path('about') ) ); ?>" class="btn btn--primary">
+                            Explore Academy <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <div class="about__trust d-flex align-items-center gap-2">
+                            <div class="about__trust-stars d-flex">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span>Trusted by 650+ families</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-
-            <!-- Content Side -->
-            <div class="about__content">
-                <div class="about__eyebrow-wrap d-flex align-items-center">
-                    <span class="about__eyebrow-line"></span>
-                    <span class="about__eyebrow-text">About The Beacon Academy &amp; College</span>
-                </div>
-
-                <h2>Building Future Leaders Under <span class="about__title-accent">Zia Uddin Board</span></h2>
-
-                <p>The Beacon Academy &amp; College proudly delivers high-quality education under the Zia Uddin Board. We focus on academic excellence, character development, and modern learning to prepare every student for a confident and successful future.</p>
-
-                <div class="about__features">
-                    <div class="about__feature d-flex align-items-start">
-                        <div class="about__feat-icon af-purple"><i class="fa-solid fa-user-graduate"></i></div>
-                        <div>
-                            <h5>Qualified Faculty</h5>
-                            <p>Experienced teachers dedicated to student excellence.</p>
-                        </div>
-                    </div>
-                    <div class="about__feature d-flex align-items-start">
-                        <div class="about__feat-icon af-green"><i class="fa-solid fa-chalkboard-user"></i></div>
-                        <div>
-                            <h5>Modern Classrooms</h5>
-                            <p>Smart boards and digital learning environment.</p>
-                        </div>
-                    </div>
-                    <div class="about__feature d-flex align-items-start">
-                        <div class="about__feat-icon af-amber"><i class="fa-solid fa-trophy"></i></div>
-                        <div>
-                            <h5>Academic Excellence</h5>
-                            <p>Consistent top results in board examinations.</p>
-                        </div>
-                    </div>
-                    <div class="about__feature d-flex align-items-start">
-                        <div class="about__feat-icon af-pink"><i class="fa-solid fa-shield-halved"></i></div>
-                        <div>
-                            <h5>Safe Environment</h5>
-                            <p>Disciplined, inclusive and supportive campus.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about__cta-row d-flex align-items-center flex-wrap gap-3">
-                    <a href="<?php echo esc_url( get_permalink( get_page_by_path('about') ) ); ?>" class="btn btn--primary">
-                        Explore Academy <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <div class="about__trust d-flex align-items-center gap-2">
-                        <div class="about__trust-stars d-flex">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <span>Trusted by 650+ families</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
