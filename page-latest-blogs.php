@@ -50,18 +50,18 @@ get_header();
     <div class="bl-hero__orb bl-hero__orb--3" aria-hidden="true"></div>
     <div class="bl-hero__mesh" aria-hidden="true"></div>
     <div class="container bl-hero__inner">
-        <nav class="breadcrumb">
+        <nav class="breadcrumb d-inline-flex align-items-center">
             <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="fa-solid fa-house"></i> Home</a>
             <span><i class="fa-solid fa-chevron-right"></i></span>
             <span>Latest Blogs</span>
         </nav>
-        <div class="bl-hero__badge">
+        <div class="bl-hero__badge d-inline-flex align-items-center">
             <i class="fa-solid fa-circle-dot"></i>
             <span>Knowledge Hub</span>
         </div>
         <h1>Latest <span class="ab-accent">Blogs</span> &amp; Articles</h1>
         <p>Stay updated with educational insights, exam tips, school news, and academic guidance from Beacon Academy.</p>
-        <div class="bl-hero__trust d-flex align-items-center flex-wrap gap-3">
+        <div class="bl-hero__trust d-flex align-items-center justify-content-center flex-wrap gap-3">
             <span><i class="fa-solid fa-newspaper"></i> Educational Insights</span>
             <span class="bl-hero__sep"></span>
             <span><i class="fa-solid fa-lightbulb"></i> Exam Tips</span>

@@ -28,26 +28,26 @@
         </div>
         <div class="container top-bar__inner d-flex align-items-center justify-content-between">
             <div class="top-bar__left d-flex align-items-center">
-                <div class="top-bar__item">
+                <div class="top-bar__item d-flex align-items-center gap-2">
                     <span class="top-bar__icon"><i class="fa-solid fa-circle-question"></i></span>
                     <a href="#contact">Have any question?</a>
                 </div>
             </div>
             <div class="top-bar__right d-flex align-items-center gap-2">
-                <div class="top-bar__item">
+                <div class="top-bar__item d-flex align-items-center gap-2">
                     <span class="top-bar__icon tb-icon--mail"><i class="fa-solid fa-envelope"></i></span>
                     <a href="mailto:beaconacademy5@gmail.com">beaconacademy5@gmail.com</a>
                 </div>
                 <span class="top-bar__sep"></span>
-                <div class="top-bar__item">
+                <div class="top-bar__item d-flex align-items-center gap-2">
                     <span class="top-bar__icon tb-icon--phone"><i class="fa-solid fa-phone-volume"></i></span>
                     <a href="tel:+923162984609">0316 2984609</a>
                 </div>
                 <span class="top-bar__sep"></span>
                 <div class="top-bar__socials d-flex align-items-center gap-1">
-                    <a href="#" class="top-bar__social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="top-bar__social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="top-bar__social top-bar__social--wa" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/share/1ELVhLFheD/" class="top-bar__social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <!-- <a href="#" class="top-bar__social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a> -->
+                    <a href="https://wa.me/03162984609" class="top-bar__social top-bar__social--wa" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -61,12 +61,12 @@
                 <?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) : ?>
                     <?php the_custom_logo(); ?>
                 <?php else : ?>
-                    <a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <a class="brand d-inline-flex align-items-center" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                         <span class="brand__mark">
                             <span class="brand__ring" aria-hidden="true"></span>
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <div class="brand__text">
+                        <div class="brand__text d-flex flex-column">
                             <span class="brand__name">The Beacon</span>
                             <em class="brand__sub">Academy &amp; College</em>
                         </div>

@@ -16,7 +16,7 @@ get_header(); ?>
         <div class="container hero__grid">
             <div class="hero__content">
 
-                <div class="hero__pill-wrap">
+                <div class="hero__pill-wrap d-flex align-items-center">
                     <span class="hero__live-dot"></span>
                     <span class="pill"><i class="fa-solid fa-hand-sparkles"></i> Welcome to Beacon Academy</span>
                 </div>
@@ -86,21 +86,21 @@ get_header(); ?>
 
                 <!-- Float card 1 — Student review -->
                 <div class="float-card float-card--1">
-                    <div class="float-card__head">
+                    <div class="float-card__head d-flex align-items-center">
                         <div class="float-card__avatar">DR</div>
                         <div>
                             <strong>Duaa Rana</strong>
                             <span class="float-card__role">Top Student</span>
                         </div>
                     </div>
-                    <div class="float-card__stars">
+                    <div class="float-card__stars d-flex">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
                     </div>
                 </div>
 
                 <!-- Float card 2 — Student count -->
                 <div class="float-card float-card--2">
-                    <div class="float-card__num">
+                    <div class="float-card__num d-flex align-items-center">
                         <div class="float-card__num-icon"><i class="fa-solid fa-user-graduate"></i></div>
                         <span>650<sup>+</sup></span>
                     </div>
@@ -109,7 +109,7 @@ get_header(); ?>
 
                 <!-- Float card 3 — Trophy -->
                 <div class="float-card float-card--3">
-                    <div class="float-card__trophy-wrap">
+                    <div class="float-card__trophy-wrap d-flex align-items-center">
                         <div class="float-card__trophy-icon"><i class="fa-solid fa-trophy"></i></div>
                         <div>
                             <strong>Top Results</strong>
@@ -144,7 +144,7 @@ get_header(); ?>
                     <strong>10+</strong>
                     <span>Years of<br>Excellence</span>
                 </div>
-                <div class="about__mini-card">
+                <div class="about__mini-card d-flex align-items-center">
                     <div class="about__mini-icon"><i class="fa-solid fa-users"></i></div>
                     <div>
                         <strong>650+</strong>
@@ -155,7 +155,7 @@ get_header(); ?>
 
             <!-- Content Side -->
             <div class="about__content">
-                <div class="about__eyebrow-wrap">
+                <div class="about__eyebrow-wrap d-flex align-items-center">
                     <span class="about__eyebrow-line"></span>
                     <span class="about__eyebrow-text">About The Beacon Academy &amp; College</span>
                 </div>
@@ -165,28 +165,28 @@ get_header(); ?>
                 <p>The Beacon Academy &amp; College proudly delivers high-quality education under the Zia Uddin Board. We focus on academic excellence, character development, and modern learning to prepare every student for a confident and successful future.</p>
 
                 <div class="about__features">
-                    <div class="about__feature">
+                    <div class="about__feature d-flex align-items-start">
                         <div class="about__feat-icon af-purple"><i class="fa-solid fa-user-graduate"></i></div>
                         <div>
                             <h5>Qualified Faculty</h5>
                             <p>Experienced teachers dedicated to student excellence.</p>
                         </div>
                     </div>
-                    <div class="about__feature">
+                    <div class="about__feature d-flex align-items-start">
                         <div class="about__feat-icon af-green"><i class="fa-solid fa-chalkboard-user"></i></div>
                         <div>
                             <h5>Modern Classrooms</h5>
                             <p>Smart boards and digital learning environment.</p>
                         </div>
                     </div>
-                    <div class="about__feature">
+                    <div class="about__feature d-flex align-items-start">
                         <div class="about__feat-icon af-amber"><i class="fa-solid fa-trophy"></i></div>
                         <div>
                             <h5>Academic Excellence</h5>
                             <p>Consistent top results in board examinations.</p>
                         </div>
                     </div>
-                    <div class="about__feature">
+                    <div class="about__feature d-flex align-items-start">
                         <div class="about__feat-icon af-pink"><i class="fa-solid fa-shield-halved"></i></div>
                         <div>
                             <h5>Safe Environment</h5>
@@ -200,7 +200,7 @@ get_header(); ?>
                         Explore Academy <i class="fa-solid fa-arrow-right"></i>
                     </a>
                     <div class="about__trust d-flex align-items-center gap-2">
-                        <div class="about__trust-stars">
+                        <div class="about__trust-stars d-flex">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
                         <span>Trusted by 650+ families</span>
@@ -262,13 +262,13 @@ get_header(); ?>
                 );
                 foreach ( $programs as $p ) : ?>
                     <article class="program-card program-card--<?php echo esc_attr( $p['color'] ); ?>">
-                        <div class="program-card__header">
+                        <div class="program-card__header d-flex align-items-center justify-content-between">
                             <div class="program-card__icon"><i class="fa-solid <?php echo esc_attr( $p['icon'] ); ?>"></i></div>
                             <span class="program-card__badge"><?php echo $p['badge']; ?></span>
                         </div>
                         <h3><?php echo esc_html( $p['title'] ); ?></h3>
                         <p><?php echo $p['desc']; ?></p>
-                        <a href="#" class="program-card__link">Explore Program <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#" class="program-card__link d-inline-flex align-items-center gap-2">Explore Program <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="program-card__bg-glow" aria-hidden="true"></div>
                     </article>
                 <?php endforeach; ?>
@@ -328,9 +328,9 @@ get_header(); ?>
 
                 <div class="t-track">
                     <article class="t-slide is-active">
-                        <div class="t-slide__top">
+                        <div class="t-slide__top d-flex align-items-center justify-content-center">
                             <div class="t-avatar t-avatar--purple">AK</div>
-                            <div class="t-stars">
+                            <div class="t-stars d-flex">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                         </div>
@@ -342,9 +342,9 @@ get_header(); ?>
                         </div>
                     </article>
                     <article class="t-slide">
-                        <div class="t-slide__top">
+                        <div class="t-slide__top d-flex align-items-center justify-content-center">
                             <div class="t-avatar t-avatar--green">SA</div>
-                            <div class="t-stars">
+                            <div class="t-stars d-flex">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                         </div>
@@ -356,9 +356,9 @@ get_header(); ?>
                         </div>
                     </article>
                     <article class="t-slide">
-                        <div class="t-slide__top">
+                        <div class="t-slide__top d-flex align-items-center justify-content-center">
                             <div class="t-avatar t-avatar--blue">UM</div>
-                            <div class="t-stars">
+                            <div class="t-stars d-flex">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                         </div>
@@ -373,7 +373,7 @@ get_header(); ?>
 
                 <button class="t-nav t-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
 
-                <div class="t-dots">
+                <div class="t-dots d-flex justify-content-center">
                     <span class="t-dot is-active"></span>
                     <span class="t-dot"></span>
                     <span class="t-dot"></span>

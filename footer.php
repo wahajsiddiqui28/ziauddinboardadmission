@@ -3,16 +3,16 @@
     <footer id="colophon" class="site-footer">
         <div class="container site-footer__grid">
             <div class="footer-col">
-                <a class="brand brand--light" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <a class="brand brand--light d-inline-flex align-items-center" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <span class="brand__mark"><i class="fa-solid fa-graduation-cap"></i></span>
-                    <span class="brand__text">The Beacon <em>Academy &amp; College</em></span>
+                    <span class="brand__text d-flex flex-column">The Beacon <em>Academy &amp; College</em></span>
                 </a>
                 <p>Quality education with a student-centered approach under Zia Uddin Board standards. Building future leaders through academic excellence.</p>
                 <div class="socials d-flex align-items-center gap-2">
-                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/share/18rBnJLg9U/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <!-- <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a> -->
+                    <!-- <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a> -->
+                    <a href="https://wa.me/03162984609" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
 

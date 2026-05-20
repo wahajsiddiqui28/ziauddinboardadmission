@@ -14,12 +14,12 @@ get_header();
     <div class="about-hero__orb about-hero__orb--3" aria-hidden="true"></div>
     <div class="about-hero__mesh" aria-hidden="true"></div>
     <div class="container about-hero__inner">
-        <nav class="breadcrumb" aria-label="breadcrumb">
+        <nav class="breadcrumb d-inline-flex align-items-center" aria-label="breadcrumb">
             <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="fa-solid fa-house"></i> Home</a>
             <span><i class="fa-solid fa-chevron-right"></i></span>
             <span>About</span>
         </nav>
-        <div class="about-hero__badge"><i class="fa-solid fa-circle-dot"></i> Zia Uddin Board Affiliated</div>
+        <div class="about-hero__badge d-inline-flex align-items-center"><i class="fa-solid fa-circle-dot"></i> Zia Uddin Board Affiliated</div>
         <h1>About <span class="ab-accent">Beacon Academy</span></h1>
         <p class="about-hero__sub">Empowering students through quality education, strong values, and academic excellence — affiliated with Zia Uddin Board, Karachi.</p>
         <div class="about-hero__trust d-flex align-items-center flex-wrap gap-3">
@@ -58,11 +58,11 @@ get_header();
                              alt="Beacon Academy Students" />
                     </div>
                 </div>
-                <div class="ab-badge ab-badge--exp">
+                <div class="ab-badge ab-badge--exp d-flex flex-column align-items-center">
                     <span class="ab-badge__num">10<sup>+</sup></span>
                     <span class="ab-badge__txt">Years of<br>Excellence</span>
                 </div>
-                <div class="ab-badge ab-badge--students">
+                <div class="ab-badge ab-badge--students d-flex align-items-center">
                     <div class="ab-badge__icon"><i class="fa-solid fa-users"></i></div>
                     <span>1,000+ Students<br><em>Enrolled</em></span>
                 </div>
@@ -102,28 +102,28 @@ get_header();
     <div class="container ab-stats__grid">
         <div class="ab-stat-item ab-stat-item--purple d-flex align-items-center gap-3">
             <div class="ab-stat-item__icon"><i class="fa-solid fa-user-graduate"></i></div>
-            <div>
+            <div class="d-flex flex-column">
                 <strong>1,000<span>+</span></strong>
                 <span>Students Enrolled</span>
             </div>
         </div>
         <div class="ab-stat-item ab-stat-item--green d-flex align-items-center gap-3">
             <div class="ab-stat-item__icon"><i class="fa-solid fa-school"></i></div>
-            <div>
+            <div class="d-flex flex-column">
                 <strong>4<span>+</span></strong>
                 <span>Campus Centers</span>
             </div>
         </div>
         <div class="ab-stat-item ab-stat-item--gold d-flex align-items-center gap-3">
             <div class="ab-stat-item__icon"><i class="fa-solid fa-chalkboard-teacher"></i></div>
-            <div>
+            <div class="d-flex flex-column">
                 <strong>20<span>+</span></strong>
                 <span>Expert Teachers</span>
             </div>
         </div>
         <div class="ab-stat-item ab-stat-item--blue d-flex align-items-center gap-3">
             <div class="ab-stat-item__icon"><i class="fa-solid fa-trophy"></i></div>
-            <div>
+            <div class="d-flex flex-column">
                 <strong>10<span>+</span></strong>
                 <span>Years Experience</span>
             </div>
@@ -144,7 +144,7 @@ get_header();
             <!-- Mission -->
             <div class="ab-mv-card ab-mv-card--mission">
                 <div class="ab-mv-card__top-bar"></div>
-                <div class="ab-mv-card__body">
+                <div class="ab-mv-card__body d-flex flex-column">
                     <div class="ab-mv-card__icon">
                         <i class="fa-solid fa-rocket"></i>
                     </div>
@@ -152,9 +152,9 @@ get_header();
                         <h3>Our Mission</h3>
                         <p>To provide students with high-quality, affordable education that encourages academic excellence, intellectual curiosity, and strong moral values. We aim to guide students toward success through dedicated teaching, structured learning, and a supportive educational environment.</p>
                         <ul class="ab-mv-list">
-                            <li><i class="fa-solid fa-check"></i> Quality &amp; Affordable Education</li>
-                            <li><i class="fa-solid fa-check"></i> Dedicated Teaching Staff</li>
-                            <li><i class="fa-solid fa-check"></i> Structured Learning Programs</li>
+                            <li class="d-flex align-items-center gap-2"><i class="fa-solid fa-check"></i> Quality &amp; Affordable Education</li>
+                            <li class="d-flex align-items-center gap-2"><i class="fa-solid fa-check"></i> Dedicated Teaching Staff</li>
+                            <li class="d-flex align-items-center gap-2"><i class="fa-solid fa-check"></i> Structured Learning Programs</li>
                         </ul>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ get_header();
             <!-- Vision -->
             <div class="ab-mv-card ab-mv-card--vision">
                 <div class="ab-mv-card__top-bar"></div>
-                <div class="ab-mv-card__body">
+                <div class="ab-mv-card__body d-flex flex-column">
                     <div class="ab-mv-card__icon">
                         <i class="fa-solid fa-eye"></i>
                     </div>
@@ -177,9 +177,9 @@ get_header();
                         <h3>Our Vision</h3>
                         <p>To become one of the most trusted educational institutions in Karachi — a place where students achieve their highest academic potential while developing the character and confidence required for future success in board examinations and beyond.</p>
                         <ul class="ab-mv-list">
-                            <li><i class="fa-solid fa-check"></i> Most Trusted Institution</li>
-                            <li><i class="fa-solid fa-check"></i> Character &amp; Confidence Building</li>
-                            <li><i class="fa-solid fa-check"></i> Future-Ready Graduates</li>
+                            <li class="d-flex align-items-center gap-2"><i class="fa-solid fa-check"></i> Most Trusted Institution</li>
+                            <li class="d-flex align-items-center gap-2"><i class="fa-solid fa-check"></i> Character &amp; Confidence Building</li>
+                            <li class="d-flex align-items-center gap-2"><i class="fa-solid fa-check"></i> Future-Ready Graduates</li>
                         </ul>
                     </div>
                 </div>
@@ -208,42 +208,42 @@ get_header();
             <p style="color:rgba(255,255,255,.6);">Everything we do is guided by these principles that shape the Beacon Academy experience.</p>
         </div>
         <div class="ab-values__grid">
-            <div class="ab-val-card" style="--ic:#5b4bff;">
+            <div class="ab-val-card d-flex align-items-start" style="--ic:#5b4bff;">
                 <div class="ab-val-card__icon"><i class="fa-solid fa-chalkboard-user"></i></div>
                 <div class="ab-val-card__body">
                     <h4>Experienced Teachers</h4>
                     <p>Highly qualified, passionate educators dedicated to fostering a love for learning and guiding each student to their full potential.</p>
                 </div>
             </div>
-            <div class="ab-val-card" style="--ic:#e84393;">
+            <div class="ab-val-card d-flex align-items-start" style="--ic:#e84393;">
                 <div class="ab-val-card__icon"><i class="fa-solid fa-laptop-code"></i></div>
                 <div class="ab-val-card__body">
                     <h4>Modern Facilities</h4>
                     <p>Modern classrooms, advanced digital learning tools, science and computer labs, and a well-stocked library for effective learning.</p>
                 </div>
             </div>
-            <div class="ab-val-card" style="--ic:#0ea5e9;">
+            <div class="ab-val-card d-flex align-items-start" style="--ic:#0ea5e9;">
                 <div class="ab-val-card__icon"><i class="fa-solid fa-shield-heart"></i></div>
                 <div class="ab-val-card__body">
                     <h4>Safe Environment</h4>
                     <p>We maintain a disciplined yet caring environment where every student feels secure, respected, and motivated to learn every day.</p>
                 </div>
             </div>
-            <div class="ab-val-card" style="--ic:#f59e0b;">
+            <div class="ab-val-card d-flex align-items-start" style="--ic:#f59e0b;">
                 <div class="ab-val-card__icon"><i class="fa-solid fa-medal"></i></div>
                 <div class="ab-val-card__body">
                     <h4>Academic Excellence</h4>
                     <p>Consistently outstanding board results through structured curriculum and exam preparation strategies that help students excel.</p>
                 </div>
             </div>
-            <div class="ab-val-card" style="--ic:#10b981;">
+            <div class="ab-val-card d-flex align-items-start" style="--ic:#10b981;">
                 <div class="ab-val-card__icon"><i class="fa-solid fa-people-group"></i></div>
                 <div class="ab-val-card__body">
                     <h4>Community Focus</h4>
                     <p>Serving students from Scheme 33, Gulzar-e-Hijri, and surrounding areas — accessible, affordable education for all families.</p>
                 </div>
             </div>
-            <div class="ab-val-card" style="--ic:#8b5cf6;">
+            <div class="ab-val-card d-flex align-items-start" style="--ic:#8b5cf6;">
                 <div class="ab-val-card__icon"><i class="fa-solid fa-lightbulb"></i></div>
                 <div class="ab-val-card__body">
                     <h4>Holistic Growth</h4>
@@ -274,7 +274,7 @@ get_header();
                     title="Beacon Academy Location">
                 </iframe>
             </div>
-            <div class="ab-campus__info">
+            <div class="ab-campus__info d-flex flex-column">
                 <div class="ab-info-card d-flex align-items-start gap-3" style="--ic:#5b4bff;">
                     <div class="ab-info-icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div>
@@ -320,7 +320,7 @@ get_header();
     <div class="ab-cta-band__mesh" aria-hidden="true"></div>
     <div class="container">
         <div class="ab-cta-band__inner">
-            <div class="ab-cta-badge"><i class="fa-solid fa-circle-dot"></i> Admissions 2024–25 Open</div>
+            <div class="ab-cta-badge d-inline-flex align-items-center"><i class="fa-solid fa-circle-dot"></i> Admissions 2024–25 Open</div>
             <h2>Ready to Start Your Journey<br>with <span class="ab-cta-accent">Beacon Academy?</span></h2>
             <p>Join thousands of students who have achieved academic success and built bright futures with us. Secure your seat today.</p>
             <div class="ab-cta-band__btns d-flex align-items-center justify-content-center flex-wrap gap-3">

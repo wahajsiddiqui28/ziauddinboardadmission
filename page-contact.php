@@ -46,7 +46,7 @@ get_header();
         <span class="ct-shape ct-shape--3"></span>
     </div>
     <div class="container ct-hero__inner">
-        <nav class="breadcrumb">
+        <nav class="breadcrumb d-inline-flex align-items-center">
             <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="fa-solid fa-house"></i> Home</a>
             <span><i class="fa-solid fa-chevron-right"></i></span>
             <span>Contact Us</span>
@@ -69,40 +69,40 @@ get_header();
         <div class="ct-quick-bar__grid">
 
             <div class="ct-quick-card d-flex align-items-center gap-3">
-                <div class="ct-quick-icon" style="--qc:#5b4bff;">
+                <div class="ct-quick-icon d-flex align-items-center justify-content-center" style="--qc:#5b4bff;">
                     <i class="fa-solid fa-location-dot"></i>
                 </div>
-                <div>
+                <div class="d-flex flex-column">
                     <strong>Visit Us</strong>
                     <span>Scheme 33, Gulzar-e-Hijri, Karachi</span>
                 </div>
             </div>
 
             <div class="ct-quick-card d-flex align-items-center gap-3">
-                <div class="ct-quick-icon" style="--qc:#10b981;">
+                <div class="ct-quick-icon d-flex align-items-center justify-content-center" style="--qc:#10b981;">
                     <i class="fa-solid fa-phone-volume"></i>
                 </div>
-                <div>
+                <div class="d-flex flex-column">
                     <strong>Call Us</strong>
                     <span><a href="tel:+923162984609">0316 2984609</a></span>
                 </div>
             </div>
 
             <div class="ct-quick-card d-flex align-items-center gap-3">
-                <div class="ct-quick-icon" style="--qc:#f59e0b;">
+                <div class="ct-quick-icon d-flex align-items-center justify-content-center" style="--qc:#f59e0b;">
                     <i class="fa-solid fa-envelope-open-text"></i>
                 </div>
-                <div>
+                <div class="d-flex flex-column">
                     <strong>Email Us</strong>
                     <span><a href="mailto:beaconacademy5@gmail.com">beaconacademy5@gmail.com</a></span>
                 </div>
             </div>
 
             <div class="ct-quick-card d-flex align-items-center gap-3">
-                <div class="ct-quick-icon" style="--qc:#e84393;">
+                <div class="ct-quick-icon d-flex align-items-center justify-content-center" style="--qc:#e84393;">
                     <i class="fa-solid fa-clock"></i>
                 </div>
-                <div>
+                <div class="d-flex flex-column">
                     <strong>Office Hours</strong>
                     <span>Mon – Sat: 8 AM – 4 PM</span>
                 </div>
@@ -126,29 +126,29 @@ get_header();
                 <p>Whether you're a prospective student, parent, or community member — we're here to help. Reach out and we'll get back to you promptly.</p>
             </div>
 
-            <ul class="ct-info-list">
-                <li>
+            <ul class="ct-info-list d-flex flex-column">
+                <li class="d-flex align-items-start gap-3">
                     <div class="ct-info-icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div>
                         <strong>Address</strong>
                         <span>C-1869 &amp; A-83, Behind Gulzar-e-Hijri Police Station,<br>Scheme 33, Karachi – 75620</span>
                     </div>
                 </li>
-                <li>
+                <li class="d-flex align-items-start gap-3">
                     <div class="ct-info-icon"><i class="fa-solid fa-phone"></i></div>
                     <div>
                         <strong>Phone</strong>
                         <span><a href="tel:+923162984609">0316 2984609</a></span>
                     </div>
                 </li>
-                <li>
+                <li class="d-flex align-items-start gap-3">
                     <div class="ct-info-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div>
                         <strong>Email</strong>
                         <span><a href="mailto:beaconacademy5@gmail.com">beaconacademy5@gmail.com</a></span>
                     </div>
                 </li>
-                <li>
+                <li class="d-flex align-items-start gap-3">
                     <div class="ct-info-icon"><i class="fa-solid fa-clock"></i></div>
                     <div>
                         <strong>Working Hours</strong>
@@ -182,7 +182,7 @@ get_header();
             <?php else : ?>
 
                 <?php if ( $error ) : ?>
-                    <div class="ct-alert ct-alert--error">
+                    <div class="ct-alert ct-alert--error d-flex align-items-center">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         <?php echo esc_html( $error ); ?>
                     </div>
@@ -199,7 +199,7 @@ get_header();
                     <div class="ct-form__row row g-0">
                         <div class="ct-field col-md-12">
                             <label for="ct_name">Full Name <span class="req">*</span></label>
-                            <div class="ct-input-wrap">
+                            <div class="ct-input-wrap d-flex align-items-center">
                                 <i class="fa-solid fa-user"></i>
                                 <input type="text" id="ct_name" name="contact_name" placeholder="e.g. Ahmed Ali"
                                     value="<?php echo esc_attr( $values['name'] ); ?>" required>
@@ -207,7 +207,7 @@ get_header();
                         </div>
                         <div class="ct-field col-md-12">
                             <label for="ct_email">Email Address <span class="req">*</span></label>
-                            <div class="ct-input-wrap">
+                            <div class="ct-input-wrap d-flex align-items-center">
                                 <i class="fa-solid fa-envelope"></i>
                                 <input type="email" id="ct_email" name="contact_email" placeholder="your@email.com"
                                     value="<?php echo esc_attr( $values['email'] ); ?>" required>
@@ -218,7 +218,7 @@ get_header();
                     <div class="ct-form__row row g-0">
                         <div class="ct-field col-md-12">
                             <label for="ct_phone">Phone Number</label>
-                            <div class="ct-input-wrap">
+                            <div class="ct-input-wrap d-flex align-items-center">
                                 <i class="fa-solid fa-phone"></i>
                                 <input type="tel" id="ct_phone" name="contact_phone" placeholder="0300 0000000"
                                     value="<?php echo esc_attr( $values['phone'] ); ?>">
@@ -226,7 +226,7 @@ get_header();
                         </div>
                         <div class="ct-field col-md-12">
                             <label for="ct_subject">Subject</label>
-                            <div class="ct-input-wrap">
+                            <div class="ct-input-wrap d-flex align-items-center">
                                 <i class="fa-solid fa-tag"></i>
                                 <select id="ct_subject" name="contact_subject">
                                     <option value="" <?php selected( $values['subject'], '' ); ?>>Select a subject…</option>
@@ -242,7 +242,7 @@ get_header();
 
                     <div class="ct-field">
                         <label for="ct_message">Your Message <span class="req">*</span></label>
-                        <div class="ct-input-wrap ct-input-wrap--area">
+                        <div class="ct-input-wrap ct-input-wrap--area d-flex align-items-center">
                             <i class="fa-solid fa-message"></i>
                             <textarea id="ct_message" name="contact_message" rows="5"
                                 placeholder="Write your enquiry here…" required><?php echo esc_textarea( $values['message'] ); ?></textarea>
