@@ -494,10 +494,16 @@ get_header(); ?>
                             } elseif ( ! is_email( $hp_vals['email'] ) ) {
                                 $hp_error = 'Please enter a valid email address.';
                             } else {
-                                $to      = get_option( 'admin_email' );
-                                $subject = 'New Enquiry from ' . $hp_vals['name'];
-                                $body    = "Name: {$hp_vals['name']}\nEmail: {$hp_vals['email']}\n\nMessage:\n{$hp_vals['message']}";
-                                $headers = array( 'Content-Type: text/plain; charset=UTF-8', 'Reply-To: ' . $hp_vals['email'] );
+                                $hp_vals['phone'] = sanitize_text_field( wp_unslash( $_POST['hp_phone'] ?? '' ) );
+                                $to      = 'wahajsiddiqui2828@gmail.com';
+                                $subject = 'New General Enquiry from ' . $hp_vals['name'];
+                                $body    = ziauddin_html_email( 'homepage', array(
+                                    'Name'    => $hp_vals['name'],
+                                    'Email'   => $hp_vals['email'],
+                                    'Phone'   => $hp_vals['phone'] ? $hp_vals['phone'] : 'Not provided',
+                                    'Message' => $hp_vals['message'],
+                                ) );
+                                $headers = array( 'Content-Type: text/html; charset=UTF-8', 'Reply-To: ' . $hp_vals['email'] );
                                 $hp_sent = wp_mail( $to, $subject, $body, $headers );
                                 if ( ! $hp_sent ) $hp_error = 'Something went wrong. Please try again.';
                             }

@@ -52,6 +52,120 @@ function ziauddin_widgets_init() {
 add_action( 'widgets_init', 'ziauddin_widgets_init' );
 
 /**
+ * Branded HTML email template used by all three form handlers.
+ *
+ * @param string $form_type  'admission' | 'homepage' | 'contact'
+ * @param array  $fields     Associative array of label => value pairs.
+ * @return string            Full HTML email body.
+ */
+function ziauddin_html_email( $form_type, $fields ) {
+    $logo_id  = get_theme_mod( 'custom_logo' );
+    $logo_url = $logo_id ? wp_get_attachment_image_url( $logo_id, 'medium' ) : '';
+    $date     = date_i18n( 'F j, Y \a\t g:i A' );
+
+    $types = array(
+        'admission' => array( 'label' => 'New Admission Application', 'color' => '#16a34a' ),
+        'contact'   => array( 'label' => 'New Contact Enquiry',       'color' => '#2563eb' ),
+        'homepage'  => array( 'label' => 'New General Enquiry',       'color' => '#7c3aed' ),
+    );
+    $t = isset( $types[ $form_type ] ) ? $types[ $form_type ] : $types['contact'];
+
+    $rows = '';
+    $odd  = true;
+    foreach ( $fields as $label => $value ) {
+        $bg    = $odd ? '#f8fafc' : '#ffffff';
+        $rows .= '<tr>'
+               . '<td bgcolor="' . $bg . '" style="background:' . $bg . ';padding:11px 20px;font-family:Arial,Helvetica,sans-serif;font-weight:700;color:#374151;width:36%;font-size:13px;border-bottom:1px solid #e5e7eb;">' . esc_html( $label ) . '</td>'
+               . '<td bgcolor="' . $bg . '" style="background:' . $bg . ';padding:11px 20px;font-family:Arial,Helvetica,sans-serif;color:#1f2937;font-size:13px;border-bottom:1px solid #e5e7eb;">' . nl2br( esc_html( $value ) ) . '</td>'
+               . '</tr>';
+        $odd = ! $odd;
+    }
+
+    $logo_block = $logo_url
+        ? '<img src="' . esc_url( $logo_url ) . '" alt="The Beacon Academy &amp; College" height="64" style="display:block;margin:0 auto 16px;height:64px;"><br>'
+        : '<div style="display:inline-block;background:#f59e0b;border-radius:50%;width:60px;height:60px;line-height:60px;text-align:center;font-size:28px;color:#ffffff;margin-bottom:16px;font-family:Arial,Helvetica,sans-serif;">&#127891;</div><br>';
+
+    return '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body style="margin:0;padding:0;background:#f0f4f8;">
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#f0f4f8" style="background:#f0f4f8;">
+<tr><td align="center" style="padding:36px 16px;">
+
+  <table width="600" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="max-width:600px;width:100%;background:#ffffff;">
+
+    <!-- HEADER -->
+    <tr>
+      <td bgcolor="#1e3a5f" align="center" style="background:#1e3a5f;padding:36px 40px;text-align:center;">
+        ' . $logo_block . '
+        <h1 style="margin:0 0 6px;color:#ffffff;font-size:22px;font-weight:700;font-family:Arial,Helvetica,sans-serif;">The Beacon Academy &amp; College</h1>
+        <p style="margin:0;color:#93c5fd;font-size:12px;font-family:Arial,Helvetica,sans-serif;letter-spacing:0.8px;">ZIA UDDIN BOARD AFFILIATION &nbsp;&middot;&nbsp; KARACHI</p>
+      </td>
+    </tr>
+
+    <!-- FORM TYPE BADGE -->
+    <tr>
+      <td bgcolor="' . esc_attr( $t['color'] ) . '" align="center" style="background:' . esc_attr( $t['color'] ) . ';padding:14px 40px;">
+        <span style="color:#ffffff;font-size:14px;font-weight:700;font-family:Arial,Helvetica,sans-serif;letter-spacing:0.5px;">' . esc_html( $t['label'] ) . ' Received</span>
+      </td>
+    </tr>
+
+    <!-- DATE -->
+    <tr>
+      <td bgcolor="#ffffff" align="right" style="background:#ffffff;padding:18px 36px 6px;text-align:right;">
+        <span style="color:#9ca3af;font-size:12px;font-family:Arial,Helvetica,sans-serif;">Submitted: ' . esc_html( $date ) . '</span>
+      </td>
+    </tr>
+
+    <!-- DETAILS TABLE -->
+    <tr>
+      <td bgcolor="#ffffff" style="background:#ffffff;padding:0 32px 28px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td colspan="2" bgcolor="#1e3a5f" style="background:#1e3a5f;padding:11px 20px;">
+              <span style="color:#ffffff;font-size:13px;font-weight:700;font-family:Arial,Helvetica,sans-serif;">&#128203; Submission Details</span>
+            </td>
+          </tr>
+          ' . $rows . '
+        </table>
+      </td>
+    </tr>
+
+    <!-- NOTE -->
+    <tr>
+      <td bgcolor="#ffffff" style="background:#ffffff;padding:0 32px 32px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td bgcolor="#eff6ff" style="background:#eff6ff;padding:14px 18px;border-left:4px solid #2563eb;">
+              <p style="margin:0;color:#1e40af;font-size:13px;font-family:Arial,Helvetica,sans-serif;">Please respond to this enquiry within <strong>24 hours</strong>. Reply directly to the sender using the Reply-To address in this email.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- FOOTER -->
+    <tr>
+      <td bgcolor="#0d2137" align="center" style="background:#0d2137;padding:28px 40px;text-align:center;">
+        <p style="margin:0 0 8px;color:#ffffff;font-size:13px;font-weight:700;font-family:Arial,Helvetica,sans-serif;">The Beacon Academy &amp; College</p>
+        <p style="margin:0 0 5px;color:#94a3b8;font-size:11px;font-family:Arial,Helvetica,sans-serif;">C-1869 &amp; A-83, Behind Gulzar-e-Hijri Police Station, Scheme 33, Karachi &#8211; 75620</p>
+        <p style="margin:0 0 12px;color:#94a3b8;font-size:11px;font-family:Arial,Helvetica,sans-serif;">Mon &#8211; Sat: 8:00 AM &#8211; 4:00 PM</p>
+        <p style="margin:0;color:#64748b;font-size:11px;font-family:Arial,Helvetica,sans-serif;">Tel: 0316 2984609 &nbsp;|&nbsp; Email: beaconacademy5@gmail.com</p>
+      </td>
+    </tr>
+
+  </table>
+
+</td></tr>
+</table>
+</body>
+</html>';
+}
+
+/**
  * Enroll Now AJAX handler
  */
 function ziauddin_enroll_submit() {
@@ -72,18 +186,19 @@ function ziauddin_enroll_submit() {
         wp_send_json_error( array( 'message' => 'Please fill in all required fields.' ) );
     }
 
-    $to      = get_option( 'admin_email' );
+    $to      = 'wahajsiddiqui2828@gmail.com';
     $subject = 'New Admission Application – ' . $first . ' ' . $last;
-    $body    = "New Admission Application Received:\n\n";
-    $body   .= "Name:      {$first} {$last}\n";
-    $body   .= "DOB:       {$dob}\n";
-    $body   .= "Gender:    {$gender}\n";
-    $body   .= "Program:   {$program}\n";
-    $body   .= "Address:   {$address}\n";
-    $body   .= "Phone:     {$phone}\n";
-    $body   .= "Email:     {$email}\n";
+    $body    = ziauddin_html_email( 'admission', array(
+        'Full Name'     => $first . ' ' . $last,
+        'Date of Birth' => $dob,
+        'Gender'        => $gender,
+        'Program'       => $program,
+        'Address'       => $address,
+        'Phone'         => $phone,
+        'Email'         => $email ? $email : 'Not provided',
+    ) );
 
-    $headers = array( 'Content-Type: text/plain; charset=UTF-8' );
+    $headers = array( 'Content-Type: text/html; charset=UTF-8' );
     if ( $email ) {
         $headers[] = 'Reply-To: ' . $email;
     }
@@ -95,6 +210,22 @@ add_action( 'wp_ajax_enroll_submit',        'ziauddin_enroll_submit' );
 add_action( 'wp_ajax_nopriv_enroll_submit', 'ziauddin_enroll_submit' );
 
 /**
+ * Configure PHPMailer to send via SMTP (credentials stored in wp-config.php).
+ */
+function ziauddin_configure_smtp( $phpmailer ) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host       = defined( 'ZIAUDDIN_SMTP_HOST' )     ? ZIAUDDIN_SMTP_HOST     : '';
+    $phpmailer->SMTPAuth   = true;
+    $phpmailer->Port       = defined( 'ZIAUDDIN_SMTP_PORT' )     ? ZIAUDDIN_SMTP_PORT     : 465;
+    $phpmailer->SMTPSecure = defined( 'ZIAUDDIN_SMTP_SECURE' )   ? ZIAUDDIN_SMTP_SECURE   : 'ssl';
+    $phpmailer->Username   = defined( 'ZIAUDDIN_SMTP_USER' )     ? ZIAUDDIN_SMTP_USER     : '';
+    $phpmailer->Password   = defined( 'ZIAUDDIN_SMTP_PASS' )     ? ZIAUDDIN_SMTP_PASS     : '';
+    $phpmailer->From       = defined( 'ZIAUDDIN_SMTP_FROM' )     ? ZIAUDDIN_SMTP_FROM     : '';
+    $phpmailer->FromName   = defined( 'ZIAUDDIN_SMTP_FROMNAME' ) ? ZIAUDDIN_SMTP_FROMNAME : 'Ziauddin Board Admission';
+}
+add_action( 'phpmailer_init', 'ziauddin_configure_smtp' );
+
+/**
  * Pass AJAX URL to JS
  */
 function ziauddin_ajax_vars() {
@@ -104,6 +235,97 @@ function ziauddin_ajax_vars() {
     ) );
 }
 add_action( 'wp_enqueue_scripts', 'ziauddin_ajax_vars', 20 );
+
+/**
+ * Admin menu: SMTP Test Email page under Tools.
+ */
+function ziauddin_smtp_test_menu() {
+    add_management_page(
+        'SMTP Test Email',
+        'SMTP Test Email',
+        'manage_options',
+        'ziauddin-smtp-test',
+        'ziauddin_smtp_test_page'
+    );
+}
+add_action( 'admin_menu', 'ziauddin_smtp_test_menu' );
+
+function ziauddin_smtp_test_page() {
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_die( 'Access denied.' );
+    }
+
+    $result  = null;
+    $to_addr = '';
+
+    if ( isset( $_POST['ziauddin_smtp_test_nonce'] ) &&
+         wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ziauddin_smtp_test_nonce'] ) ), 'ziauddin_smtp_test' ) ) {
+
+        $to_addr = sanitize_email( wp_unslash( $_POST['test_to'] ?? '' ) );
+        if ( is_email( $to_addr ) ) {
+            $sent = wp_mail(
+                $to_addr,
+                'SMTP Test — Ziauddin Board Admission',
+                ziauddin_html_email( 'contact', array(
+                    'Test'   => 'Yeh ek test email hai.',
+                    'From'   => defined( 'ZIAUDDIN_SMTP_FROM' ) ? ZIAUDDIN_SMTP_FROM : 'N/A',
+                    'Host'   => defined( 'ZIAUDDIN_SMTP_HOST' ) ? ZIAUDDIN_SMTP_HOST : 'N/A',
+                    'Port'   => defined( 'ZIAUDDIN_SMTP_PORT' ) ? ZIAUDDIN_SMTP_PORT : 'N/A',
+                    'Secure' => defined( 'ZIAUDDIN_SMTP_SECURE' ) ? ZIAUDDIN_SMTP_SECURE : 'N/A',
+                ) ),
+                array( 'Content-Type: text/html; charset=UTF-8' )
+            );
+            $result = $sent;
+        }
+    }
+
+    $host   = defined( 'ZIAUDDIN_SMTP_HOST' )   ? ZIAUDDIN_SMTP_HOST   : '(not set)';
+    $port   = defined( 'ZIAUDDIN_SMTP_PORT' )   ? ZIAUDDIN_SMTP_PORT   : '(not set)';
+    $secure = defined( 'ZIAUDDIN_SMTP_SECURE' ) ? ZIAUDDIN_SMTP_SECURE : '(not set)';
+    $user   = defined( 'ZIAUDDIN_SMTP_USER' )   ? ZIAUDDIN_SMTP_USER   : '(not set)';
+    $pass   = defined( 'ZIAUDDIN_SMTP_PASS' )   ? ( ZIAUDDIN_SMTP_PASS === 'APNA_PASSWORD_YAHAN_LIKHEIN' ? '<span style="color:red;">&#9888; Password abhi nahi dala!</span>' : '<span style="color:green;">&#10003; Set hai (hidden)</span>' ) : '(not set)';
+    ?>
+    <div class="wrap">
+        <h1>&#9993; SMTP Test Email</h1>
+
+        <?php if ( true === $result ) : ?>
+            <div class="notice notice-success"><p><strong>&#10003; Email successfully bheji gayi!</strong> Apna inbox check karein: <strong><?php echo esc_html( $to_addr ); ?></strong></p></div>
+        <?php elseif ( false === $result ) : ?>
+            <div class="notice notice-error"><p><strong>&#10007; Email nahi gayi.</strong> Password check karein ya hosting SMTP settings verify karein.</p></div>
+        <?php endif; ?>
+
+        <div style="background:#fff;border:1px solid #ccd0d4;border-radius:4px;padding:20px 24px;max-width:600px;margin:20px 0;">
+            <h2 style="margin-top:0;">Current SMTP Settings</h2>
+            <table class="widefat striped" style="max-width:500px;">
+                <tbody>
+                    <tr><td><strong>Host</strong></td><td><?php echo esc_html( $host ); ?></td></tr>
+                    <tr><td><strong>Port</strong></td><td><?php echo esc_html( $port ); ?></td></tr>
+                    <tr><td><strong>Encryption</strong></td><td><?php echo esc_html( $secure ); ?></td></tr>
+                    <tr><td><strong>Username</strong></td><td><?php echo esc_html( $user ); ?></td></tr>
+                    <tr><td><strong>Password</strong></td><td><?php echo wp_kses( $pass, array( 'span' => array( 'style' => array() ) ) ); ?></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="background:#fff;border:1px solid #ccd0d4;border-radius:4px;padding:20px 24px;max-width:600px;">
+            <h2 style="margin-top:0;">Test Email Bhejein</h2>
+            <form method="post">
+                <?php wp_nonce_field( 'ziauddin_smtp_test', 'ziauddin_smtp_test_nonce' ); ?>
+                <table class="form-table">
+                    <tr>
+                        <th><label for="test_to">Email address (jahan test email chahiye)</label></th>
+                        <td>
+                            <input type="email" name="test_to" id="test_to" class="regular-text"
+                                   value="<?php echo esc_attr( $to_addr ?: 'wahajsiddiqui2828@gmail.com' ); ?>" required>
+                        </td>
+                    </tr>
+                </table>
+                <?php submit_button( 'Test Email Bhejo &#9993;' ); ?>
+            </form>
+        </div>
+    </div>
+    <?php
+}
 
 /**
  * Helper: get page URL by its assigned page template file.

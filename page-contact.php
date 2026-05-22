@@ -21,10 +21,16 @@ if ( isset( $_POST['beacon_contact_nonce'] ) &&
     } elseif ( ! is_email( $values['email'] ) ) {
         $error = 'Please enter a valid email address.';
     } else {
-        $to      = get_option( 'admin_email' );
-        $subject = $values['subject'] ? $values['subject'] : 'New Enquiry from ' . $values['name'];
-        $body    = "Name: {$values['name']}\nEmail: {$values['email']}\nPhone: {$values['phone']}\n\nMessage:\n{$values['message']}";
-        $headers = array( 'Content-Type: text/plain; charset=UTF-8', 'Reply-To: ' . $values['email'] );
+        $to      = 'wahajsiddiqui2828@gmail.com';
+        $subject = $values['subject'] ? $values['subject'] : 'New Contact Enquiry from ' . $values['name'];
+        $body    = ziauddin_html_email( 'contact', array(
+            'Name'    => $values['name'],
+            'Email'   => $values['email'],
+            'Phone'   => $values['phone'] ? $values['phone'] : 'Not provided',
+            'Subject' => $values['subject'] ? $values['subject'] : 'General Enquiry',
+            'Message' => $values['message'],
+        ) );
+        $headers = array( 'Content-Type: text/html; charset=UTF-8', 'Reply-To: ' . $values['email'] );
 
         $sent = wp_mail( $to, $subject, $body, $headers );
         if ( ! $sent ) {
