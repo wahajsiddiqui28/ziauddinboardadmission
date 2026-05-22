@@ -52,10 +52,10 @@ get_header();
                     <span class="ab-corner ab-corner--bl" aria-hidden="true"></span>
                     <span class="ab-corner ab-corner--br" aria-hidden="true"></span>
                     <div class="ab-welcome__img">
-                        <?php $welcome_img = get_template_directory_uri() . '/assets/images/about-welcome.jpg'; ?>
-                        <img src="<?php echo esc_url( $welcome_img ); ?>"
-                             onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80'"
+                       
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-page-images/about-Institute.webp' ); ?>"
                              alt="Beacon Academy Students" />
+                             
                     </div>
                 </div>
                 <div class="ab-badge ab-badge--exp d-flex flex-column align-items-center">
@@ -170,8 +170,7 @@ get_header();
                     </div>
                 </div>
                 <div class="ab-mv-card__img">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mission.jpg' ); ?>"
-                         onerror="this.src='https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=80'"
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-page-images/about-ourMission.webp' ); ?>"
                          alt="Our Mission" />
                 </div>
                 <div class="ab-mv-card__glow" aria-hidden="true"></div>
@@ -197,8 +196,7 @@ get_header();
                     </div>
                 </div>
                 <div class="ab-mv-card__img">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision.jpg' ); ?>"
-                         onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80'"
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-page-images/about-ourVision.webp' ); ?>"
                          alt="Our Vision" />
                 </div>
                 <div class="ab-mv-card__glow" aria-hidden="true"></div>

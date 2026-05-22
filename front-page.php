@@ -76,7 +76,7 @@ get_header(); ?>
                     <div class="hero__frame-ring hero__frame-ring--1" aria-hidden="true"></div>
                     <div class="hero__frame-ring hero__frame-ring--2" aria-hidden="true"></div>
 
-                    <div class="hero__image" style="background-image:url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1200&q=85');"></div>
+                    <div class="hero__image" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/home-page-images/home-Education.webp' ); ?>');"></div>
 
                     <!-- Inside-image badge overlay -->
                     <div class="hero__img-badge" aria-hidden="true">
@@ -140,7 +140,7 @@ get_header(); ?>
                 <div class="col-lg-6 about__media">
                     <div class="about__media-bg" aria-hidden="true"></div>
                     <div class="about__image">
-                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=80" alt="Beacon Academy Building">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/home-page-images/home-Building.webp' ); ?>" alt="Beacon Academy Building">
                         <div class="about__img-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="about__exp-badge">

@@ -117,11 +117,11 @@
                     'fallback_cb'    => 'ziauddin_default_menu',
                 ) );
                 ?>
-                <div class="mobile-menu-enroll">
+                <!-- <div class="mobile-menu-enroll">
                     <button class="btn btn--primary btn--shine enrl-open-btn" type="button">
                         <i class="fa-solid fa-pen-to-square"></i> Enroll Now
                     </button>
-                </div>
+                </div> -->
                 <div class="mobile-menu-footer">
                     <div class="mobile-menu-contact">
                         <a href="tel:+923162984609"><i class="fa-solid fa-phone"></i> 0316 2984609</a>
