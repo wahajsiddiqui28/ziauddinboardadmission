@@ -169,10 +169,13 @@ function ziauddin_html_email( $form_type, $fields ) {
  * Enroll Now AJAX handler
  */
 function ziauddin_enroll_submit() {
+
+    // 1) Security: verify nonce.
     if ( ! isset( $_POST['enroll_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['enroll_nonce'] ) ), 'enroll_submit' ) ) {
-        wp_send_json_error( array( 'message' => 'Security check failed.' ) );
+        wp_send_json_error( array( 'message' => 'Security check failed. Please refresh the page and try again.' ) );
     }
 
+    // 2) Collect + sanitize input.
     $first   = sanitize_text_field( wp_unslash( $_POST['first_name'] ?? '' ) );
     $last    = sanitize_text_field( wp_unslash( $_POST['last_name']  ?? '' ) );
     $dob     = sanitize_text_field( wp_unslash( $_POST['dob']        ?? '' ) );
@@ -182,29 +185,61 @@ function ziauddin_enroll_submit() {
     $phone   = sanitize_text_field( wp_unslash( $_POST['phone']      ?? '' ) );
     $email   = sanitize_email( wp_unslash( $_POST['email']           ?? '' ) );
 
-    if ( empty( $first ) || empty( $last ) || empty( $dob ) || empty( $gender ) || empty( $program ) || empty( $address ) || empty( $phone ) ) {
+    // 3) Validate.
+    if ( '' === $first || '' === $last || '' === $dob || '' === $gender || '' === $program || '' === $address || '' === $phone ) {
         wp_send_json_error( array( 'message' => 'Please fill in all required fields.' ) );
     }
+    if ( '' !== $email && ! is_email( $email ) ) {
+        wp_send_json_error( array( 'message' => 'Please enter a valid email address.' ) );
+    }
 
-    $to      = 'wahajsiddiqui2828@gmail.com';
+    // 4) Optional student photo: validate + attach.
+    $attachments = array();
+    $tmp_copy    = '';
+    if ( ! empty( $_FILES['photo']['tmp_name'] ) && is_uploaded_file( $_FILES['photo']['tmp_name'] ) ) {
+        $filetype = wp_check_filetype( sanitize_file_name( $_FILES['photo']['name'] ) );
+        $allowed  = array( 'jpg', 'jpeg', 'png', 'gif', 'webp' );
+        $size_ok  = (int) $_FILES['photo']['size'] <= 5 * 1024 * 1024; // 5 MB max
+        if ( $filetype['ext'] && in_array( strtolower( $filetype['ext'] ), $allowed, true ) && $size_ok ) {
+            $safe_name = sanitize_file_name( strtolower( $first . '-' . $last ) . '-photo.' . $filetype['ext'] );
+            $tmp_copy  = trailingslashit( get_temp_dir() ) . $safe_name;
+            if ( move_uploaded_file( $_FILES['photo']['tmp_name'], $tmp_copy ) ) {
+                $attachments[] = $tmp_copy;
+            }
+        }
+    }
+
+    // 5) Build the email — send to the school's own mailbox.
+    $to      = defined( 'ZIAUDDIN_SMTP_USER' ) ? ZIAUDDIN_SMTP_USER : get_option( 'admin_email' );
     $subject = 'New Admission Application – ' . $first . ' ' . $last;
     $body    = ziauddin_html_email( 'admission', array(
-        'Full Name'     => $first . ' ' . $last,
-        'Date of Birth' => $dob,
-        'Gender'        => $gender,
-        'Program'       => $program,
-        'Address'       => $address,
-        'Phone'         => $phone,
-        'Email'         => $email ? $email : 'Not provided',
+        'Full Name'       => $first . ' ' . $last,
+        'Date of Birth'   => $dob,
+        'Gender'          => $gender,
+        'Class / Program' => $program,
+        'Address'         => $address,
+        'Contact Number'  => $phone,
+        'Email'           => $email ? $email : 'Not provided',
     ) );
 
     $headers = array( 'Content-Type: text/html; charset=UTF-8' );
     if ( $email ) {
-        $headers[] = 'Reply-To: ' . $email;
+        $headers[] = 'Reply-To: ' . $first . ' ' . $last . ' <' . $email . '>';
     }
 
-    wp_mail( $to, $subject, $body, $headers );
-    wp_send_json_success( array( 'message' => 'Application submitted successfully!' ) );
+    // 6) Send + report the real result.
+    $sent = wp_mail( $to, $subject, $body, $headers, $attachments );
+
+    // 7) Clean up the temporary photo copy.
+    if ( $tmp_copy && file_exists( $tmp_copy ) ) {
+        @unlink( $tmp_copy );
+    }
+
+    if ( $sent ) {
+        wp_send_json_success( array( 'message' => 'Application submitted successfully! Our team will contact you soon.' ) );
+    } else {
+        wp_send_json_error( array( 'message' => 'Sorry, we could not send your application right now. Please call 0316 2984609 or try again shortly.' ) );
+    }
 }
 add_action( 'wp_ajax_enroll_submit',        'ziauddin_enroll_submit' );
 add_action( 'wp_ajax_nopriv_enroll_submit', 'ziauddin_enroll_submit' );
@@ -222,8 +257,30 @@ function ziauddin_configure_smtp( $phpmailer ) {
     $phpmailer->Password   = defined( 'ZIAUDDIN_SMTP_PASS' )     ? ZIAUDDIN_SMTP_PASS     : '';
     $phpmailer->From       = defined( 'ZIAUDDIN_SMTP_FROM' )     ? ZIAUDDIN_SMTP_FROM     : '';
     $phpmailer->FromName   = defined( 'ZIAUDDIN_SMTP_FROMNAME' ) ? ZIAUDDIN_SMTP_FROMNAME : 'Ziauddin Board Admission';
+    
+    // Add SSL verification options to avoid local development SSL issues
+    $phpmailer->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer'       => false,
+            'verify_peer_name'  => false,
+            'allow_self_signed' => true
+        )
+    );
 }
 add_action( 'phpmailer_init', 'ziauddin_configure_smtp' );
+
+/**
+ * Log wp_mail failures so SMTP issues are visible in debug.log.
+ */
+function ziauddin_log_mail_errors( $wp_error ) {
+    if ( is_wp_error( $wp_error ) ) {
+        error_log( '=== WP_MAIL FAILED ===' );
+        error_log( 'Error code: ' . $wp_error->get_error_code() );
+        error_log( 'Error message: ' . $wp_error->get_error_message() );
+        error_log( 'Error data: ' . print_r( $wp_error->get_error_data(), true ) );
+    }
+}
+add_action( 'wp_mail_failed', 'ziauddin_log_mail_errors' );
 
 /**
  * Pass AJAX URL to JS
