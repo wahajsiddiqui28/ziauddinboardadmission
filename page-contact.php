@@ -175,10 +175,10 @@ get_header();
             <div class="ct-social">
                 <strong>Follow Us</strong>
                 <div class="ct-social__links d-flex align-items-center gap-2">
-                    <a href="#" aria-label="Facebook" style="--sc:#1877f2;"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram" style="--sc:#e1306c;"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" aria-label="WhatsApp" style="--sc:#25d366;"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" aria-label="YouTube" style="--sc:#ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/share/1ELVhLFheD/" aria-label="Facebook" style="--sc:#1877f2;"><i class="fa-brands fa-facebook-f"></i></a>
+                    
+                    <a href="https://wa.me/03162984609" aria-label="WhatsApp" style="--sc:#25d366;"><i class="fa-brands fa-whatsapp"></i></a>
+                    
                 </div>
             </div>
 
