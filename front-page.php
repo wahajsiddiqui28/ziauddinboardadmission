@@ -495,7 +495,7 @@ get_header(); ?>
                                 $hp_error = 'Please enter a valid email address.';
                             } else {
                                 $hp_vals['phone'] = sanitize_text_field( wp_unslash( $_POST['hp_phone'] ?? '' ) );
-                                $to      = 'wahajsiddiqui2828@gmail.com';
+                                $to      = defined( 'ZIAUDDIN_SMTP_USER' ) ? ZIAUDDIN_SMTP_USER : get_option( 'admin_email' );
                                 $subject = 'New General Enquiry from ' . $hp_vals['name'];
                                 $body    = ziauddin_html_email( 'homepage', array(
                                     'Name'    => $hp_vals['name'],
@@ -503,7 +503,7 @@ get_header(); ?>
                                     'Phone'   => $hp_vals['phone'] ? $hp_vals['phone'] : 'Not provided',
                                     'Message' => $hp_vals['message'],
                                 ) );
-                                $headers = array( 'Content-Type: text/html; charset=UTF-8', 'Reply-To: ' . $hp_vals['email'] );
+                                $headers = array( 'Content-Type: text/html; charset=UTF-8', 'Reply-To: ' . $hp_vals['email'], ziauddin_form_cc_header() );
                                 $hp_sent = wp_mail( $to, $subject, $body, $headers );
                                 if ( ! $hp_sent ) $hp_error = 'Something went wrong. Please try again.';
                             }

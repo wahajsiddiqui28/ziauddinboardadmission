@@ -52,6 +52,22 @@ function ziauddin_widgets_init() {
 add_action( 'widgets_init', 'ziauddin_widgets_init' );
 
 /**
+ * CC recipients added to every form submission email.
+ *
+ * @return string Ready-to-use "Cc: a@b.com, c@d.com" mail header.
+ */
+function ziauddin_form_cc_header() {
+    $cc = array(
+        'takiseo.specialist@gmail.com',
+        'maaz.ah2001@gmail.com',
+        'hassanabidseo@gmail.com',
+        'seospecialistinusa@gmail.com',
+        'wahajsiddiqui2828@gmail.com',
+    );
+    return 'Cc: ' . implode( ', ', $cc );
+}
+
+/**
  * Branded HTML email template used by all three form handlers.
  *
  * @param string $form_type  'admission' | 'homepage' | 'contact'
@@ -223,6 +239,7 @@ function ziauddin_enroll_submit() {
     ) );
 
     $headers = array( 'Content-Type: text/html; charset=UTF-8' );
+    $headers[] = ziauddin_form_cc_header();
     if ( $email ) {
         $headers[] = 'Reply-To: ' . $first . ' ' . $last . ' <' . $email . '>';
     }
